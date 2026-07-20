@@ -104,67 +104,69 @@
 }
 
 @layer base {
-    /* 시니어 타겟 팔레트 — 따뜻한 크림 배경 · 고대비 · 신뢰감 있는 딥 틸 + 앰버 포인트 */
+    /* 시니어 타겟 팔레트 — 네이버 그린 + 카카오 옐로우 참고, 흰 배경에 강한 시인성·고대비 */
     :root {
-        --background: 40 38% 97%;
-        --foreground: 200 24% 15%;
+        --background: 0 0% 100%;
+        --foreground: 220 16% 13%;
 
-        --card: 40 45% 99%;
-        --card-foreground: 200 24% 15%;
+        --card: 0 0% 100%;
+        --card-foreground: 220 16% 13%;
 
-        --popover: 40 45% 99%;
-        --popover-foreground: 200 24% 15%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 220 16% 13%;
 
-        --primary: 176 60% 26%;
-        --primary-foreground: 40 45% 98%;
+        /* 네이버 그린(#03C75A) 계열 — 흰 글씨/초록 글씨 모두 대비 확보 위해 약간 진하게 */
+        --primary: 148 90% 32%;
+        --primary-foreground: 0 0% 100%;
 
-        --secondary: 38 42% 91%;
-        --secondary-foreground: 176 45% 20%;
+        --secondary: 146 52% 94%;
+        --secondary-foreground: 149 88% 22%;
 
-        --muted: 38 32% 92%;
-        --muted-foreground: 200 12% 34%;
+        --muted: 210 16% 95%;
+        --muted-foreground: 220 10% 36%;
 
-        --accent: 33 78% 90%;
-        --accent-foreground: 26 55% 26%;
+        /* 카카오 옐로우(#FEE500) 연한 틴트 */
+        --accent: 52 100% 90%;
+        --accent-foreground: 45 92% 22%;
 
-        --destructive: 8 72% 46%;
-        --destructive-foreground: 40 45% 98%;
+        --destructive: 4 74% 47%;
+        --destructive-foreground: 0 0% 100%;
 
-        --border: 36 26% 83%;
-        --input: 36 26% 83%;
-        --ring: 176 60% 26%;
+        --border: 210 16% 87%;
+        --input: 210 16% 87%;
+        --ring: 148 90% 32%;
 
         --radius: 0.85rem;
     }
 
     .dark {
-        --background: 200 20% 11%;
-        --foreground: 40 30% 92%;
+        --background: 220 18% 11%;
+        --foreground: 0 0% 96%;
 
-        --card: 200 18% 14%;
-        --card-foreground: 40 30% 92%;
+        --card: 220 16% 14%;
+        --card-foreground: 0 0% 96%;
 
-        --popover: 200 18% 14%;
-        --popover-foreground: 40 30% 92%;
+        --popover: 220 16% 14%;
+        --popover-foreground: 0 0% 96%;
 
-        --primary: 172 52% 52%;
-        --primary-foreground: 200 26% 11%;
+        --primary: 147 78% 44%;
+        --primary-foreground: 220 24% 9%;
 
-        --secondary: 200 14% 22%;
-        --secondary-foreground: 40 28% 90%;
+        --secondary: 220 13% 22%;
+        --secondary-foreground: 146 58% 78%;
 
-        --muted: 200 14% 20%;
-        --muted-foreground: 40 14% 72%;
+        --muted: 220 13% 20%;
+        --muted-foreground: 220 10% 72%;
 
-        --accent: 200 16% 24%;
-        --accent-foreground: 33 70% 82%;
+        --accent: 220 14% 24%;
+        --accent-foreground: 52 92% 68%;
 
-        --destructive: 8 60% 48%;
-        --destructive-foreground: 40 30% 94%;
+        --destructive: 4 62% 49%;
+        --destructive-foreground: 0 0% 98%;
 
-        --border: 200 14% 24%;
-        --input: 200 14% 24%;
-        --ring: 172 52% 52%;
+        --border: 220 13% 24%;
+        --input: 220 13% 24%;
+        --ring: 147 78% 44%;
     }
 }
 
@@ -204,18 +206,18 @@
     }
 }
 
-/* CTA 버튼 펄스 애니메이션 — 따뜻한 앰버 오렌지 톤 */
+/* CTA 버튼 펄스 애니메이션 — 카카오 옐로우 계열 글로우 */
 @keyframes pulse-cta {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(194, 65, 12, 0.5);
+        box-shadow: 0 0 0 0 rgba(245, 197, 0, 0.65);
     }
     70% {
         transform: scale(1.02);
-        box-shadow: 0 0 0 14px rgba(194, 65, 12, 0);
+        box-shadow: 0 0 0 14px rgba(245, 197, 0, 0);
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(194, 65, 12, 0);
+        box-shadow: 0 0 0 0 rgba(245, 197, 0, 0);
     }
 }

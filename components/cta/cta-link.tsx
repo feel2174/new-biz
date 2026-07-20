@@ -26,9 +26,10 @@ export function CtaLink({
         <a
           href={btn.href}
           rel="noopener noreferrer sponsored"
-          className="block rounded-xl px-6 py-5 text-center text-lg font-bold leading-snug text-white no-underline"
+          className="block rounded-xl px-6 py-5 text-center text-lg font-bold leading-snug no-underline"
           style={{
-            backgroundColor: "#c2410c",
+            backgroundColor: "#FEE500",
+            color: "#191600",
             animation: "pulse-cta 2s infinite",
           }}
           onClick={() => {

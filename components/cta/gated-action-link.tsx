@@ -24,11 +24,12 @@ export function GatedActionLink({
         href={href}
         rel="noopener noreferrer sponsored"
         className={cn(
-          "block rounded-xl px-6 py-5 text-center text-lg font-bold leading-snug text-white no-underline",
+          "block rounded-xl px-6 py-5 text-center text-lg font-bold leading-snug no-underline",
           className
         )}
         style={{
-          backgroundColor: "#c2410c",
+          backgroundColor: "#FEE500",
+          color: "#191600",
           animation: "pulse-cta 2s infinite",
         }}
         onClick={() => {
@@ -42,7 +43,10 @@ export function GatedActionLink({
       >
         <span className="block">{label}</span>
         {description && (
-          <span className="mt-1 block text-sm font-medium text-white/85">
+          <span
+            className="mt-1 block text-sm font-medium"
+            style={{ color: "#3d2b00" }}
+          >
             {description}
           </span>
         )}
