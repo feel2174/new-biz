@@ -104,66 +104,67 @@
 }
 
 @layer base {
+    /* 시니어 타겟 팔레트 — 따뜻한 크림 배경 · 고대비 · 신뢰감 있는 딥 틸 + 앰버 포인트 */
     :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
+        --background: 40 38% 97%;
+        --foreground: 200 24% 15%;
 
-        --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
+        --card: 40 45% 99%;
+        --card-foreground: 200 24% 15%;
 
-        --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
+        --popover: 40 45% 99%;
+        --popover-foreground: 200 24% 15%;
 
-        --primary: 0 0% 9%;
-        --primary-foreground: 0 0% 98%;
+        --primary: 176 60% 26%;
+        --primary-foreground: 40 45% 98%;
 
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
+        --secondary: 38 42% 91%;
+        --secondary-foreground: 176 45% 20%;
 
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
+        --muted: 38 32% 92%;
+        --muted-foreground: 200 12% 34%;
 
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
+        --accent: 33 78% 90%;
+        --accent-foreground: 26 55% 26%;
 
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
+        --destructive: 8 72% 46%;
+        --destructive-foreground: 40 45% 98%;
 
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
+        --border: 36 26% 83%;
+        --input: 36 26% 83%;
+        --ring: 176 60% 26%;
 
-        --radius: 0.5rem;
+        --radius: 0.85rem;
     }
 
     .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
+        --background: 200 20% 11%;
+        --foreground: 40 30% 92%;
 
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
+        --card: 200 18% 14%;
+        --card-foreground: 40 30% 92%;
 
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
+        --popover: 200 18% 14%;
+        --popover-foreground: 40 30% 92%;
 
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
+        --primary: 172 52% 52%;
+        --primary-foreground: 200 26% 11%;
 
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
+        --secondary: 200 14% 22%;
+        --secondary-foreground: 40 28% 90%;
 
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
+        --muted: 200 14% 20%;
+        --muted-foreground: 40 14% 72%;
 
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
+        --accent: 200 16% 24%;
+        --accent-foreground: 33 70% 82%;
 
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
+        --destructive: 8 60% 48%;
+        --destructive-foreground: 40 30% 94%;
 
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
+        --border: 200 14% 24%;
+        --input: 200 14% 24%;
+        --ring: 172 52% 52%;
     }
 }
 
@@ -172,23 +173,49 @@
         @apply border-border;
     }
 
+    /* 시니어 가독성 — 기본 글자 크기를 키우고(18px 기준) 넉넉한 줄간격 */
+    html {
+        font-size: 112.5%;
+    }
+
     body {
         @apply bg-background text-foreground;
+        line-height: 1.75;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* 본문(Article/Prose) 읽기 편하게 — 더 큰 글씨·넓은 줄간격·또렷한 제목 */
+    .prose {
+        font-size: 1.15rem;
+        line-height: 1.9;
+    }
+    .prose :where(h2):not(:where([class~="not-prose"] *)) {
+        font-size: 1.6rem;
+        line-height: 1.35;
+        margin-top: 2.2em;
+    }
+    .prose :where(h3):not(:where([class~="not-prose"] *)) {
+        font-size: 1.3rem;
+        line-height: 1.4;
+    }
+    .prose :where(li):not(:where([class~="not-prose"] *)) {
+        margin-top: 0.4em;
+        margin-bottom: 0.4em;
     }
 }
 
-/* CTA 버튼 펄스 애니메이션 */
+/* CTA 버튼 펄스 애니메이션 — 따뜻한 앰버 오렌지 톤 */
 @keyframes pulse-cta {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.45);
+        box-shadow: 0 0 0 0 rgba(194, 65, 12, 0.5);
     }
     70% {
         transform: scale(1.02);
-        box-shadow: 0 0 0 12px rgba(220, 38, 38, 0);
+        box-shadow: 0 0 0 14px rgba(194, 65, 12, 0);
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+        box-shadow: 0 0 0 0 rgba(194, 65, 12, 0);
     }
 }

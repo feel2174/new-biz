@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import { Inter as FontSans } from "next/font/google";
+import { Noto_Sans_KR as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
@@ -16,7 +16,9 @@ import type { Metadata, Viewport } from "next";
 
 const font = FontSans({
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
   variable: "--font-sans",
+  preload: false,
 });
 
 const GA_MEASUREMENT_ID =

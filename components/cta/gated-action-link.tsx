@@ -24,11 +24,11 @@ export function GatedActionLink({
         href={href}
         rel="noopener noreferrer sponsored"
         className={cn(
-          "block rounded-xl px-5 py-4 text-center text-base font-bold text-white no-underline",
+          "block rounded-xl px-6 py-5 text-center text-lg font-bold leading-snug text-white no-underline",
           className
         )}
         style={{
-          backgroundColor: "#dc2626",
+          backgroundColor: "#c2410c",
           animation: "pulse-cta 2s infinite",
         }}
         onClick={() => {
