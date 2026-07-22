@@ -1,5 +1,4 @@
 import { Section, Container } from "@/components/craft";
-import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { PaidOnly } from "@/components/traffic/traffic-gate";
 import { mainMenu, contentMenu } from "@/menu.config";
 import { siteConfig } from "@/site.config";
@@ -98,7 +97,6 @@ export function Footer() {
           </PaidOnly>
         </Container>
         <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
-          <ThemeToggle />
           <p className="text-muted-foreground text-sm">
             &copy; {new Date().getFullYear()} {siteConfig.site_name}. All rights
             reserved.

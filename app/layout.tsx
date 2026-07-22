@@ -1,7 +1,6 @@
 import "./globals.css";
 
 import { Noto_Sans_KR as FontSans } from "next/font/google";
-import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
 import { SiteJsonLd } from "@/components/seo/json-ld";
@@ -65,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" suppressHydrationWarning>
+    <html lang="ko">
       <head>
         <script
           async
@@ -82,20 +81,13 @@ gtag('config', '${GA_MEASUREMENT_ID}');`,
         />
       </head>
       <body className={cn("min-h-screen font-sans antialiased", font.variable)}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <TrafficGateProvider>
-            <AdSenseScript />
-            <SiteJsonLd />
-            <Nav />
-            {children}
-            <Footer />
-          </TrafficGateProvider>
-        </ThemeProvider>
+        <TrafficGateProvider>
+          <AdSenseScript />
+          <SiteJsonLd />
+          <Nav />
+          {children}
+          <Footer />
+        </TrafficGateProvider>
         <Analytics />
       </body>
     </html>
