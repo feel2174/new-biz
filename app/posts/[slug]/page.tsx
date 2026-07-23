@@ -11,6 +11,7 @@ import { Section, Container, Article, Prose } from "@/components/craft";
 import { badgeVariants } from "@/components/ui/badge";
 import { AdSenseUnit } from "@/components/ads/adsense-unit";
 import { CtaLink } from "@/components/cta/cta-link";
+import { PreserveLinkParams } from "@/components/posts/preserve-link-params";
 import { ActionGuideLanding } from "@/components/landing/action-guide";
 import { JsonLd } from "@/components/seo/json-ld";
 import { cn } from "@/lib/utils";
@@ -150,7 +151,9 @@ export default async function Page({
         </Prose>
 
         {adSlotArticle && <AdSenseUnit slot={adSlotArticle} />}
-        <Article dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+        <PreserveLinkParams>
+          <Article dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+        </PreserveLinkParams>
         {adSlotArticle && <AdSenseUnit slot={adSlotArticle} />}
       </Container>
     </Section>
@@ -252,27 +255,31 @@ function LocalPostView({ post }: { post: LocalPost }) {
             slug={post.slug}
           />
         ) : hasInlineCta && post.contentHtml ? (
-          post.contentHtml.split(/<!--CTA:(\d+)-->/).map((part, idx) => {
-            // split(캡처그룹): 짝수 idx=HTML 조각, 홀수 idx=CTA 인덱스
-            if (idx % 2 === 1) {
-              const btn = post.cta?.[Number(part)];
-              return btn ? (
-                <CtaLink
-                  key={`cta-${idx}`}
-                  btn={btn}
-                  buttonName={`${post.slug}-cta${part}`}
+          <PreserveLinkParams>
+            {post.contentHtml.split(/<!--CTA:(\d+)-->/).map((part, idx) => {
+              // split(캡처그룹): 짝수 idx=HTML 조각, 홀수 idx=CTA 인덱스
+              if (idx % 2 === 1) {
+                const btn = post.cta?.[Number(part)];
+                return btn ? (
+                  <CtaLink
+                    key={`cta-${idx}`}
+                    btn={btn}
+                    buttonName={`${post.slug}-cta${part}`}
+                  />
+                ) : null;
+              }
+              return part ? (
+                <Article
+                  key={`seg-${idx}`}
+                  dangerouslySetInnerHTML={{ __html: part }}
                 />
               ) : null;
-            }
-            return part ? (
-              <Article
-                key={`seg-${idx}`}
-                dangerouslySetInnerHTML={{ __html: part }}
-              />
-            ) : null;
-          })
+            })}
+          </PreserveLinkParams>
         ) : (
-          <Article dangerouslySetInnerHTML={{ __html: post.contentHtml ?? "" }} />
+          <PreserveLinkParams>
+            <Article dangerouslySetInnerHTML={{ __html: post.contentHtml ?? "" }} />
+          </PreserveLinkParams>
         )}
         {adSlotArticle && <AdSenseUnit slot={adSlotArticle} />}
       </Container>
