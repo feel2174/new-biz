@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import { SiteJsonLd } from "@/components/seo/json-ld";
 import { TrafficGateProvider } from "@/components/traffic/traffic-gate";
 import { AdSenseScript } from "@/components/ads/adsense-script";
+import { LinkClickTracker } from "@/components/analytics/link-click-tracker";
 import { Analytics } from "@vercel/analytics/next";
 
 import { siteConfig } from "@/site.config";
@@ -97,6 +98,7 @@ gtag('config', '${GA_MEASUREMENT_ID}');`,
       <body className={cn("min-h-screen font-sans antialiased", font.variable)}>
         <TrafficGateProvider>
           <AdSenseScript />
+          <LinkClickTracker />
           <SiteJsonLd />
           <Nav />
           {children}
