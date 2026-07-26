@@ -6,6 +6,8 @@ import { Footer } from "@/components/layout/footer";
 import { SiteJsonLd } from "@/components/seo/json-ld";
 import { TrafficGateProvider } from "@/components/traffic/traffic-gate";
 import { AdSenseScript } from "@/components/ads/adsense-script";
+import { TaboolaLoader } from "@/components/ads/taboola-loader";
+import { TaboolaFlush } from "@/components/ads/taboola-flush";
 import { LinkClickTracker } from "@/components/analytics/link-click-tracker";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -98,11 +100,13 @@ gtag('config', '${GA_MEASUREMENT_ID}');`,
       <body className={cn("min-h-screen font-sans antialiased", font.variable)}>
         <TrafficGateProvider>
           <AdSenseScript />
+          <TaboolaLoader />
           <LinkClickTracker />
           <SiteJsonLd />
           <Nav />
           {children}
           <Footer />
+          <TaboolaFlush />
         </TrafficGateProvider>
         <Analytics />
       </body>

@@ -10,6 +10,7 @@ import { siteConfig } from "@/site.config";
 import { Section, Container, Article, Prose } from "@/components/craft";
 import { badgeVariants } from "@/components/ui/badge";
 import { AdSenseUnit } from "@/components/ads/adsense-unit";
+import { TaboolaUnit } from "@/components/ads/taboola-unit";
 import { CtaLink } from "@/components/cta/cta-link";
 import { PreserveLinkParams } from "@/components/posts/preserve-link-params";
 import { ActionGuideLanding } from "@/components/landing/action-guide";
@@ -155,8 +156,30 @@ export default async function Page({
           <Article dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
         </PreserveLinkParams>
         {adSlotArticle && <AdSenseUnit slot={adSlotArticle} />}
+        <TaboolaPlacements />
       </Container>
     </Section>
+  );
+}
+
+// Taboola 배치 2종(Right Rail·Below Article). 이 사이트는 사이드바가 없는
+// 1단 레이아웃이라 두 위젯을 본문과 분리된 컨테이너에 순서대로 쌓아서 배치한다.
+// 유료 광고 유입에서만 렌더되며(TaboolaUnit 내부 게이팅), flush는 layout.tsx에서
+// Footer 뒤에 한 번만 호출된다.
+function TaboolaPlacements() {
+  return (
+    <div className="mt-8 space-y-8 not-prose">
+      <TaboolaUnit
+        containerId="taboola-right-rail-thumbnails"
+        mode="thumbnails-rr"
+        placement="Right Rail Thumbnails"
+      />
+      <TaboolaUnit
+        containerId="taboola-below-article-thumbnails"
+        mode="alternating-thumbnails-a"
+        placement="Below Article Thumbnails"
+      />
+    </div>
   );
 }
 
@@ -282,6 +305,7 @@ function LocalPostView({ post }: { post: LocalPost }) {
           </PreserveLinkParams>
         )}
         {adSlotArticle && <AdSenseUnit slot={adSlotArticle} />}
+        <TaboolaPlacements />
       </Container>
     </Section>
   );
