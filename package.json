@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "naver:create-campaign": "node scripts/naver-searchad/create-campaign.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
