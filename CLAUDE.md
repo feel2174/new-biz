@@ -46,6 +46,12 @@ Headless WordPress starter using Next.js 16 App Router with TypeScript.
   [`docs/naver-action-landing-template.md`](./docs/naver-action-landing-template.md) for the
   structured `actionGuide` landing template (alternative to the default `contentHtml` +
   `<!--CTA:n-->` marker approach).
+- **Whenever writing or editing a content page, also read
+  [`skills/Naver_Ad_Keyword_And_Copy_Strategy.md`](./skills/Naver_Ad_Keyword_And_Copy_Strategy.md)**
+  (ad-account keyword extraction + Naver PowerLink ad creative copy) and
+  [`skills/AI_Copywriting_Skill_Guideline.md`](./skills/AI_Copywriting_Skill_Guideline.md)
+  (headline copywriting frameworks used as the engine for ad titles) — provide the ad keyword
+  table and ad creative copy alongside the page itself, per those docs' fixed output template.
 
 ### Data Fetching Patterns
 - Server Components with parallel `Promise.all()` calls
