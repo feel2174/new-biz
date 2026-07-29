@@ -21,6 +21,54 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
+// 본문 HTML에서 지정된 번째수(들)의 <p> 태그 뒤에 마커를 삽입한다. 문단이 부족한 위치는 건너뛴다.
+function insertAfterParagraphs(html: string, marker: string, ns: number[]): string {
+  const targets = new Set(ns);
+  const closingTagRe = /<\/p>/gi;
+  let count = 0;
+  let result = "";
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  while ((match = closingTagRe.exec(html))) {
+    count++;
+    if (targets.has(count)) {
+      const idx = match.index + match[0].length;
+      result += html.slice(lastIndex, idx) + marker;
+      lastIndex = idx;
+    }
+  }
+  result += html.slice(lastIndex);
+  return result;
+}
+
+const MIDARTICLE_AD_MARKER = "<!--MIDARTICLE_AD-->";
+const CONTENT_MARKER_RE = /<!--(?:CTA:(\d+)|MIDARTICLE_AD)-->/;
+
+// contentHtml을 <!--CTA:n--> / 광고 마커 기준으로 쪼개, 본문·CTA 버튼·중간 디스플레이 광고를 순서대로 렌더한다.
+function renderPostContent(
+  html: string,
+  post: LocalPost,
+  adSlotMidArticle?: string
+) {
+  return html.split(CONTENT_MARKER_RE).map((part, idx) => {
+    // split(캡처그룹): 짝수 idx=HTML 조각, 홀수 idx=CTA 인덱스 문자열 또는 광고 마커(undefined)
+    if (idx % 2 === 0) {
+      return part ? (
+        <Article key={`seg-${idx}`} dangerouslySetInnerHTML={{ __html: part }} />
+      ) : null;
+    }
+    if (part === undefined) {
+      return adSlotMidArticle ? (
+        <AdSenseUnit key={`midad-${idx}`} slot={adSlotMidArticle} />
+      ) : null;
+    }
+    const btn = post.cta?.[Number(part)];
+    return btn ? (
+      <CtaLink key={`cta-${idx}`} btn={btn} buttonName={`${post.slug}-cta${part}`} />
+    ) : null;
+  });
+}
+
 export async function generateStaticParams() {
   const [wpSlugs, localSlugs] = await Promise.all([
     getAllPostSlugs(),
@@ -192,6 +240,9 @@ function LocalPostView({ post }: { post: LocalPost }) {
   });
   const postUrl = `${siteConfig.site_domain}/posts/${post.slug}`;
   const adSlotArticle = process.env.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE;
+  // 네광용 디스플레이 광고 슬롯 — 2번째, 4번째 문단 뒤에 각각 삽입
+  const adSlotMidArticle =
+    process.env.NEXT_PUBLIC_ADSENSE_SLOT_MIDARTICLE || "8085639039";
   // 본문에 <!--CTA:n--> 마커가 있으면 해당 위치에 n번째 CTA를 인라인으로 렌더(상단 블록 대신)
   const hasInlineCta = !!(
     post.cta &&
@@ -199,6 +250,9 @@ function LocalPostView({ post }: { post: LocalPost }) {
     post.contentHtml &&
     /<!--CTA:\d+-->/.test(post.contentHtml)
   );
+  const contentWithAdMarker = post.contentHtml
+    ? insertAfterParagraphs(post.contentHtml, MIDARTICLE_AD_MARKER, [2, 4])
+    : post.contentHtml;
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -277,31 +331,9 @@ function LocalPostView({ post }: { post: LocalPost }) {
             cta={post.cta}
             slug={post.slug}
           />
-        ) : hasInlineCta && post.contentHtml ? (
-          <PreserveLinkParams>
-            {post.contentHtml.split(/<!--CTA:(\d+)-->/).map((part, idx) => {
-              // split(캡처그룹): 짝수 idx=HTML 조각, 홀수 idx=CTA 인덱스
-              if (idx % 2 === 1) {
-                const btn = post.cta?.[Number(part)];
-                return btn ? (
-                  <CtaLink
-                    key={`cta-${idx}`}
-                    btn={btn}
-                    buttonName={`${post.slug}-cta${part}`}
-                  />
-                ) : null;
-              }
-              return part ? (
-                <Article
-                  key={`seg-${idx}`}
-                  dangerouslySetInnerHTML={{ __html: part }}
-                />
-              ) : null;
-            })}
-          </PreserveLinkParams>
         ) : (
           <PreserveLinkParams>
-            <Article dangerouslySetInnerHTML={{ __html: post.contentHtml ?? "" }} />
+            {renderPostContent(contentWithAdMarker ?? "", post, adSlotMidArticle)}
           </PreserveLinkParams>
         )}
         {adSlotArticle && <AdSenseUnit slot={adSlotArticle} />}
