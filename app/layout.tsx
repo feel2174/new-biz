@@ -24,7 +24,7 @@ const font = FontSans({
 });
 
 const GA_MEASUREMENT_ID =
-  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-410B6EXVMZ";
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-NKFTVWQZVH";
 
 export const metadata: Metadata = {
   title: {
@@ -72,19 +72,6 @@ export default function RootLayout({
         {/* Google tag (gtag.js) */}
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-XK1NRX1B65"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', 'G-XK1NRX1B65');`,
-          }}
-        />
-        <script
-          async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         />
         <script
@@ -93,7 +80,30 @@ gtag('config', 'G-XK1NRX1B65');`,
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 
-gtag('config', '${GA_MEASUREMENT_ID}');`,
+var p = new URLSearchParams(location.search);
+var isNaverAd = p.has('n_ad') || p.has('n_keyword_id');
+
+var config = { cookie_domain: 'zucca100.com' };
+
+if (isNaverAd) {
+  var nQuery = p.get('n_query') || '';
+  var nKeyword = p.get('n_keyword') || '';
+
+  config.campaign_source = 'naver';
+  config.campaign_medium = 'cpc';
+  config.campaign_term = nQuery;
+  config.campaign_content = p.get('n_ad') || '';
+  config.campaign_id = p.get('n_ad_group') || '';
+
+  // 세션 저장 — CTA 클릭/도착 이벤트에 재사용
+  sessionStorage.setItem('nv_query', nQuery);
+  sessionStorage.setItem('nv_keyword', nKeyword);
+  sessionStorage.setItem('nv_rank', p.get('n_rank') || '');
+  sessionStorage.setItem('nv_match',
+    nQuery && nKeyword ? (nQuery === nKeyword ? 'exact' : 'broad') : '');
+}
+
+gtag('config', '${GA_MEASUREMENT_ID}', config);`,
           }}
         />
       </head>

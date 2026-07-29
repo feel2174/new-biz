@@ -43,7 +43,7 @@ AdSense)는 원본과 동일하며, 콘텐츠·정체성·신뢰 페이지를 �
 
 1. **도메인**: `site.config.ts`의 `site_domain` = `https://new-biz.zucca100.com` (설정 완료). 배포 환경 DNS·호스팅 연결만 확인.
 2. **운영자 정보 확인**: 푸터/`/about`/`/privacy`의 개인정보 보호책임자(김영주)·이메일(devzucca@gmail.com)이 실제 정보와 맞는지 최종 확인.
-3. **GA4 신규 속성**: 이 사이트 전용 GA4 측정 ID를 `.env.local`의 `NEXT_PUBLIC_GA_MEASUREMENT_ID`에 설정(현재 fallback은 biz 사이트 것).
+3. **GA4 신규 속성**: 완료(2026-07-29, 같은 날 `G-NKFTVWQZVH`로 재변경). 전용 속성을 `app/layout.tsx`의 fallback으로 설정하고, biz 사이트(`G-410B6EXVMZ`)로 이중 전송되던 스크립트 블록을 제거함. `NEXT_PUBLIC_GA_MEASUREMENT_ID`로 재정의 가능. head 스크립트는 네이버 파워링크 유입(`n_ad`/`n_keyword_id`) 감지 시 `gtag('config', ...)`에 campaign_source/medium/term/content/id를 함께 실어 보내고, `nv_query`/`nv_keyword`/`nv_rank`/`nv_match`를 sessionStorage에 저장해 CTA 클릭 이벤트(`cta-link.tsx`/`gated-action-link.tsx`)에서 재사용함. `cookie_domain: 'zucca100.com'`으로 설정해 CTA 목적지인 zucca100.com과 쿠키 스코프를 공유함.
 4. **AdSense 슬롯**: 승인 후 광고 유닛 슬롯 ID를 `.env.local`에 채움. (게시자 ID는 계정 단위라 유지 가능)
 5. **CTA 목적지 최종 점검**: 위 표의 zucca100.com 원문이 계속 200인지 확인.
 6. **비즈채널 등록**: 네이버 검색광고 → 비즈채널에 실제 도메인 URL 등록 후 검수 요청.

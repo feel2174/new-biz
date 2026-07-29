@@ -63,6 +63,7 @@ const PAID_REFERRER_HOSTS =
 
 // GA4로 그대로 실어 보낼 네이버 광고 클릭 상세 파라미터
 // (검색어·광고그룹·소재·키워드·순위·캠페인유형·계약 등 — 키워드 단위 성과 분석용)
+// 이 값들은 외부 CTA 클릭 시 목적지 URL에도 그대로 실려나간다(lib/utm.ts 참고).
 const NAVER_AD_DETAIL_KEYS = [
   "n_media",
   "n_query",
@@ -72,6 +73,7 @@ const NAVER_AD_DETAIL_KEYS = [
   "n_keyword",
   "n_keyword_id",
   "n_campaign_type",
+  "n_contract",
 ] as const;
 
 export type NaverAdParams = Partial<Record<(typeof NAVER_AD_DETAIL_KEYS)[number], string>>;
