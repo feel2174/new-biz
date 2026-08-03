@@ -81,26 +81,24 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 
 var p = new URLSearchParams(location.search);
-var isNaverAd = p.has('n_ad') || p.has('n_keyword_id');
+// components/traffic/traffic-gate.tsx의 NAVER_PAID_KEYS와 반드시 동일하게 유지할 것 —
+// 두 목록이 어긋나면 CTA는 노출되는데 GA4에는 naver/cpc로 잡히지 않는 유입이 생긴다.
+var naverKeys = ['NaPm', 'n_media', 'n_query', 'n_rank', 'n_ad_group', 'n_ad', 'n_keyword', 'n_keyword_id', 'n_campaign_type', 'n_contract'];
+var isNaverAd = naverKeys.some(function (k) { return p.has(k); });
 
 var config = { cookie_domain: 'zucca100.com' };
 
 if (isNaverAd) {
+  // NaPm은 네이버가 서버 측에서만 해석 가능한 인코딩 값이라 클라이언트에서 키워드로
+  // 풀어낼 수 없다 — 그 경우 source/medium만 채우고 term/content/id는 비워둔다.
   var nQuery = p.get('n_query') || '';
   var nKeyword = p.get('n_keyword') || '';
 
   config.campaign_source = 'naver';
   config.campaign_medium = 'cpc';
-  config.campaign_term = nQuery;
+  config.campaign_term = nKeyword || nQuery;
   config.campaign_content = p.get('n_ad') || '';
   config.campaign_id = p.get('n_ad_group') || '';
-
-  // 세션 저장 — CTA 클릭/도착 이벤트에 재사용
-  sessionStorage.setItem('nv_query', nQuery);
-  sessionStorage.setItem('nv_keyword', nKeyword);
-  sessionStorage.setItem('nv_rank', p.get('n_rank') || '');
-  sessionStorage.setItem('nv_match',
-    nQuery && nKeyword ? (nQuery === nKeyword ? 'exact' : 'broad') : '');
 }
 
 gtag('config', '${GA_MEASUREMENT_ID}', config);`,

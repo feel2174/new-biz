@@ -45,16 +45,18 @@ export function GatedActionLink({
           animation: "pulse-cta 2s infinite",
         }}
         onClick={() => {
+          const nQuery = naverAdParams?.n_query || "";
+          const nKeyword = naverAdParams?.n_keyword || "";
           // @ts-expect-error - gtag는 app/layout.tsx head 스크립트가 주입하는 전역
           window.gtag?.("event", "cta_click", {
             transport_type: "beacon",
             button_name: buttonName,
             link_url: outboundHref,
             source_domain: window.location.hostname,
-            nv_query: sessionStorage.getItem("nv_query") || "(none)",
-            nv_keyword: sessionStorage.getItem("nv_keyword") || "(none)",
-            nv_rank: sessionStorage.getItem("nv_rank") || "",
-            nv_match: sessionStorage.getItem("nv_match") || "(organic)",
+            nv_query: nQuery || "(none)",
+            nv_keyword: nKeyword || "(none)",
+            nv_rank: naverAdParams?.n_rank || "",
+            nv_match: nQuery && nKeyword ? (nQuery === nKeyword ? "exact" : "broad") : "(organic)",
           });
         }}
       >
