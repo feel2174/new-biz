@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://biz.zucca100.com/sitemap.xml
-Host: https://biz.zucca100.com
+Sitemap: https://new-biz.zucca100.com/sitemap.xml
+Host: https://new-biz.zucca100.com
