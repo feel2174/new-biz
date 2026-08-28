@@ -10,6 +10,7 @@ import { siteConfig } from "@/site.config";
 import { Section, Container, Article, Prose } from "@/components/craft";
 import { badgeVariants } from "@/components/ui/badge";
 import { AdSenseUnit } from "@/components/ads/adsense-unit";
+import { ForceAds } from "@/components/ads/ad-gate";
 import { TaboolaUnit } from "@/components/ads/taboola-unit";
 import { CtaLink } from "@/components/cta/cta-link";
 import { StickyCta } from "@/components/cta/sticky-cta";
@@ -311,6 +312,8 @@ function LocalPostView({ post }: { post: LocalPost }) {
       <Container className="max-w-2xl">
         <JsonLd data={articleJsonLd} />
         <JsonLd data={breadcrumbJsonLd} />
+        {/* 게이팅 해제 글: 다이렉트 접속에도 AdSense 로더가 로드되도록 신호를 켠다 */}
+        {forceShowAds && <ForceAds />}
 
         {post.coverImage && (
           <div className="mb-6 overflow-hidden rounded-lg border">
