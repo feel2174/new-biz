@@ -69,6 +69,13 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        {/* Pretendard Variable — 한글 본문 가독성용. dynamic-subset로 필요한 글리프만 로드.
+            Noto Sans KR는 --font-sans 체인 뒤쪽 폴백으로 남는다. */}
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+        />
         {/* Google tag (gtag.js) */}
         <script
           async

@@ -9,7 +9,15 @@ import { useEffect, useRef, type ReactNode } from "react";
  * TrafficGateProvider가 다음 페이지를 다이렉트 접속으로 오판(광고 유입 상태 초기화)한다.
  * 마운트 시점에 현재 쿼리스트링을 내부링크 href에 그대로 이어붙여 이 문제를 막는다.
  */
-export function PreserveLinkParams({ children }: { children: ReactNode }) {
+export function PreserveLinkParams({
+  children,
+  className,
+  id,
+}: {
+  children: ReactNode;
+  className?: string;
+  id?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,5 +38,9 @@ export function PreserveLinkParams({ children }: { children: ReactNode }) {
       });
   }, []);
 
-  return <div ref={ref}>{children}</div>;
+  return (
+    <div ref={ref} id={id} className={className}>
+      {children}
+    </div>
+  );
 }

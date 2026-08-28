@@ -16,9 +16,9 @@
 
 @theme {
     --font-sans:
-        var(--font-sans), ui-sans-serif, system-ui, sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
+        "Pretendard Variable", Pretendard, var(--font-sans), ui-sans-serif,
+        system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol", "Noto Color Emoji";
 
     --color-border: hsl(var(--border));
     --color-input: hsl(var(--input));
@@ -137,6 +137,12 @@
         --ring: 148 90% 32%;
 
         --radius: 0.85rem;
+
+        /* 에디토리얼 강조색 — 차분한 블루(신뢰감). 초록 브랜드·옐로우 CTA와 역할 분리 */
+        --editorial-accent: 222 89% 55%;
+        --editorial-accent-strong: 222 84% 45%;
+        --editorial-accent-soft: 222 100% 97%;
+        --editorial-accent-border: 222 70% 88%;
     }
 }
 
@@ -174,6 +180,221 @@
         margin-top: 0.4em;
         margin-bottom: 0.4em;
     }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   에디토리얼 콘텐츠 스타일 — 로컬 포스트 본문(.editorial)에만 적용.
+   WordPress 렌더링(craft Article 기본형)은 건드리지 않는다.
+   각 글의 HTML을 고치지 않고 기존 마크업에 순수 CSS로 입힌다.
+   ───────────────────────────────────────────────────────────── */
+.editorial {
+    font-feature-settings: "tnum" 0;
+    color: hsl(0 0% 13%);
+}
+
+/* 섹션 헤딩 — 좌측 강조 바 */
+.editorial h2 {
+    position: relative;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: hsl(0 0% 9%);
+    margin-top: 2.75rem;
+    margin-bottom: 1rem;
+    padding-left: 0.85rem;
+    scroll-margin-top: 5rem;
+}
+.editorial h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    bottom: 0.2em;
+    width: 4px;
+    border-radius: 9999px;
+    background: hsl(var(--editorial-accent));
+}
+.editorial h3 {
+    font-size: 1.2rem;
+    line-height: 1.45;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: hsl(0 0% 12%);
+    margin-top: 1.85rem;
+    margin-bottom: 0.6rem;
+}
+
+/* 본문 */
+.editorial p {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: hsl(0 0% 22%);
+    margin-bottom: 1rem;
+}
+.editorial strong {
+    font-weight: 700;
+    color: hsl(0 0% 12%);
+}
+
+/* 리스트 — 강조색 마커, 카드감 있는 간격 */
+.editorial ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+.editorial ul > li {
+    position: relative;
+    padding-left: 1.4rem;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: hsl(0 0% 22%);
+}
+.editorial ul > li::before {
+    content: "";
+    position: absolute;
+    left: 0.15rem;
+    top: 0.72em;
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 9999px;
+    background: hsl(var(--editorial-accent));
+}
+.editorial ol {
+    list-style: none;
+    counter-reset: ed;
+    padding-left: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.editorial ol > li {
+    position: relative;
+    counter-increment: ed;
+    padding-left: 2.1rem;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: hsl(0 0% 22%);
+}
+.editorial ol > li::before {
+    content: counter(ed);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: hsl(var(--editorial-accent-strong));
+    background: hsl(var(--editorial-accent-soft));
+    border: 1px solid hsl(var(--editorial-accent-border));
+    border-radius: 9999px;
+}
+
+/* 콜아웃 — CTA 앞 후킹 문장(<p><strong>…</strong></p> 단독). 클래스는
+   렌더 시점(styleEditorialPatterns)에서 문단 전체가 strong 하나뿐일 때만 부여 */
+.editorial p.ed-callout {
+    background: hsl(var(--editorial-accent-soft));
+    border: 1px solid hsl(var(--editorial-accent-border));
+    border-left: 4px solid hsl(var(--editorial-accent));
+    border-radius: 14px;
+    padding: 1rem 1.15rem;
+    margin: 1.6rem 0 1rem;
+    font-size: 1.075rem;
+    line-height: 1.7;
+}
+.editorial p.ed-callout > strong {
+    color: hsl(var(--editorial-accent-strong));
+}
+
+/* FAQ 카드 — 질문+답(<p><strong>Q</strong> A</p>). 문단이 strong으로 시작하고
+   뒤에 답변 텍스트가 붙는 경우에만 렌더 시점에서 클래스 부여 */
+.editorial p.ed-faq {
+    background: #fff;
+    border: 1px solid hsl(0 0% 91%);
+    border-radius: 14px;
+    padding: 1rem 1.15rem;
+    margin: 0.7rem 0;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.03);
+    font-size: 1.03rem;
+    line-height: 1.75;
+    color: hsl(0 0% 28%);
+}
+.editorial p.ed-faq > strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: hsl(0 0% 12%);
+    font-size: 1.05rem;
+}
+
+/* 표 — 라운드 카드, 헤더 톤, zebra */
+.editorial table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.25rem 0;
+    font-size: 0.98rem;
+    border: 1px solid hsl(0 0% 90%);
+    border-radius: 14px;
+    overflow: hidden;
+}
+.editorial thead th {
+    background: hsl(var(--editorial-accent-soft));
+    color: hsl(0 0% 12%);
+    font-weight: 700;
+    text-align: left;
+    padding: 0.7rem 0.9rem;
+}
+.editorial tbody td {
+    padding: 0.7rem 0.9rem;
+    border-top: 1px solid hsl(0 0% 92%);
+    color: hsl(0 0% 25%);
+}
+.editorial tbody tr:nth-child(even) td {
+    background: hsl(0 0% 98.5%);
+}
+
+/* blockquote → 콜아웃 */
+.editorial blockquote {
+    border-left: 4px solid hsl(var(--editorial-accent));
+    background: hsl(var(--editorial-accent-soft));
+    border-radius: 0 12px 12px 0;
+    padding: 0.85rem 1.1rem;
+    margin: 1.4rem 0;
+    color: hsl(0 0% 25%);
+}
+
+/* 히어로 */
+.editorial-hero {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid hsl(0 0% 92%);
+}
+
+/* 모바일 하단 고정 CTA */
+.editorial-sticky-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    padding: 0.6rem 0.9rem calc(0.6rem + env(safe-area-inset-bottom));
+    background: rgb(255 255 255 / 0.92);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid hsl(0 0% 90%);
+    box-shadow: 0 -4px 16px rgb(0 0 0 / 0.06);
+    transform: translateY(120%);
+    transition: transform 0.28s ease;
+}
+.editorial-sticky-cta[data-show="true"] {
+    transform: translateY(0);
 }
 
 /* CTA 버튼 펄스 애니메이션 — 카카오 옐로우 계열 글로우 */

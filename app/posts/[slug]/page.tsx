@@ -12,6 +12,7 @@ import { badgeVariants } from "@/components/ui/badge";
 import { AdSenseUnit } from "@/components/ads/adsense-unit";
 import { TaboolaUnit } from "@/components/ads/taboola-unit";
 import { CtaLink } from "@/components/cta/cta-link";
+import { StickyCta } from "@/components/cta/sticky-cta";
 import { PreserveLinkParams } from "@/components/posts/preserve-link-params";
 import { ActionGuideLanding } from "@/components/landing/action-guide";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -44,6 +45,23 @@ function insertAfterParagraphs(html: string, marker: string, ns: number[]): stri
 const MIDARTICLE_AD_MARKER = "<!--MIDARTICLE_AD-->";
 const CONTENT_MARKER_RE = /<!--(?:CTA:(\d+)|MIDARTICLE_AD)-->/;
 
+// 에디토리얼(.editorial) 본문에서 콜아웃·FAQ 카드로 승격할 문단에 클래스를 부여한다.
+// CSS :has(strong:only-child)는 텍스트 노드를 무시해 "본문 중간에 굵은 단어 하나"인
+// 일반 문단까지 잡으므로, 문자열 패턴으로 정확히 구분한다.
+//  - ed-callout: 문단 전체가 <strong>…</strong> 하나뿐(앞뒤 텍스트 없음) — CTA 앞 후킹 문장
+//  - ed-faq:     <p><strong>질문</strong> 답변…</p> — strong으로 시작하고 뒤에 텍스트가 붙음
+function styleEditorialPatterns(html: string): string {
+  return html
+    .replace(
+      /<p><strong>([^<]*?)<\/strong><\/p>/g,
+      '<p class="ed-callout"><strong>$1</strong></p>'
+    )
+    .replace(
+      /<p><strong>([^<]*?)<\/strong>(\s*[^<\s][^]*?)<\/p>/g,
+      '<p class="ed-faq"><strong>$1</strong>$2</p>'
+    );
+}
+
 // contentHtml을 <!--CTA:n--> / 광고 마커 기준으로 쪼개, 본문·CTA 버튼·중간 디스플레이 광고를 순서대로 렌더한다.
 function renderPostContent(
   html: string,
@@ -55,7 +73,10 @@ function renderPostContent(
     // split(캡처그룹): 짝수 idx=HTML 조각, 홀수 idx=CTA 인덱스 문자열 또는 광고 마커(undefined)
     if (idx % 2 === 0) {
       return part ? (
-        <Article key={`seg-${idx}`} dangerouslySetInnerHTML={{ __html: part }} />
+        <Article
+          key={`seg-${idx}`}
+          dangerouslySetInnerHTML={{ __html: styleEditorialPatterns(part) }}
+        />
       ) : null;
     }
     if (part === undefined) {
@@ -302,18 +323,27 @@ function LocalPostView({ post }: { post: LocalPost }) {
           </div>
         )}
 
-        <Prose>
-          <h1>{post.title}</h1>
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-sm mb-4">
-            <h5 className="text-muted-foreground">{date} 게시</h5>
-            {post.category && (
-              <span className={cn(badgeVariants({ variant: "outline" }), "w-fit")}>
-                {post.category}
-              </span>
-            )}
-          </div>
-          <p className="text-lg text-muted-foreground">{post.excerpt}</p>
-        </Prose>
+        <header className="editorial-hero">
+          {post.category && (
+            <span
+              className="inline-flex w-fit items-center rounded-full border px-3 py-1 text-sm font-semibold"
+              style={{
+                color: "hsl(var(--editorial-accent-strong))",
+                backgroundColor: "hsl(var(--editorial-accent-soft))",
+                borderColor: "hsl(var(--editorial-accent-border))",
+              }}
+            >
+              {post.category}
+            </span>
+          )}
+          <h1 className="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-neutral-900 sm:text-4xl">
+            {post.title}
+          </h1>
+          <p className="mt-4 text-lg leading-relaxed text-neutral-500">
+            {post.excerpt}
+          </p>
+          <div className="mt-4 text-sm text-neutral-400">{date} 게시</div>
+        </header>
 
         {post.cta && post.cta.length > 0 && !hasInlineCta && !post.actionGuide && (
           <>
@@ -335,13 +365,19 @@ function LocalPostView({ post }: { post: LocalPost }) {
             slug={post.slug}
           />
         ) : (
-          <PreserveLinkParams>
+          <PreserveLinkParams
+            id={`local-post-body-${post.slug}`}
+            className={cn(post.contentHtml && "editorial")}
+          >
             {renderPostContent(contentWithAdMarker ?? "", post, adSlotMidArticle, forceShowAds)}
           </PreserveLinkParams>
         )}
         {adSlotArticle && <AdSenseUnit slot={adSlotArticle} forceShow={forceShowAds} />}
         <TaboolaPlacements />
       </Container>
+      {post.cta && post.cta[0] && !post.actionGuide && (
+        <StickyCta btn={post.cta[0]} buttonName={`${post.slug}-sticky-cta`} />
+      )}
     </Section>
   );
 }
