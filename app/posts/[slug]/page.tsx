@@ -15,6 +15,7 @@ import { TaboolaUnit } from "@/components/ads/taboola-unit";
 import { CtaLink } from "@/components/cta/cta-link";
 import { StickyCta } from "@/components/cta/sticky-cta";
 import { PreserveLinkParams } from "@/components/posts/preserve-link-params";
+import { RelatedCards } from "@/components/posts/related-cards";
 import { ActionGuideLanding } from "@/components/landing/action-guide";
 import { JsonLd } from "@/components/seo/json-ld";
 import { cn } from "@/lib/utils";
@@ -43,6 +44,30 @@ function insertAfterParagraphs(html: string, marker: string, ns: number[]): stri
   return result;
 }
 
+function countParagraphs(html: string): number {
+  return (html.match(/<\/p>/gi) || []).length;
+}
+
+// 글 길이(문단 수)에 비례해 중간 광고 개수·위치를 정한다. 가독성·애드센스 정책(과밀 금지)을
+// 지키도록: 너무 짧은 글엔 광고를 아예 안 넣고, 길어질수록 늘리되 문단 전체에 균등 분산한다.
+const MIN_PARAGRAPHS_FOR_ADS = 5;
+const PARAGRAPHS_PER_AD = 6;
+const MAX_MIDARTICLE_ADS = 4;
+
+function computeMidArticleAdPositions(totalParagraphs: number): number[] {
+  if (totalParagraphs < MIN_PARAGRAPHS_FOR_ADS) return [];
+
+  const adCount = Math.min(
+    MAX_MIDARTICLE_ADS,
+    Math.max(1, Math.floor(totalParagraphs / PARAGRAPHS_PER_AD))
+  );
+
+  // adCount개를 전체 문단 길이에 고르게 분산 배치(예: 2개면 1/3·2/3 지점)
+  return Array.from({ length: adCount }, (_, i) =>
+    Math.round((totalParagraphs * (i + 1)) / (adCount + 1))
+  );
+}
+
 const MIDARTICLE_AD_MARKER = "<!--MIDARTICLE_AD-->";
 const CONTENT_MARKER_RE = /<!--(?:CTA:(\d+)|MIDARTICLE_AD)-->/;
 
@@ -68,7 +93,8 @@ function renderPostContent(
   html: string,
   post: LocalPost,
   adSlotMidArticle?: string,
-  forceShowAds = false
+  forceShowAds = false,
+  forceShowCta = false
 ) {
   return html.split(CONTENT_MARKER_RE).map((part, idx) => {
     // split(캡처그룹): 짝수 idx=HTML 조각, 홀수 idx=CTA 인덱스 문자열 또는 광고 마커(undefined)
@@ -87,7 +113,12 @@ function renderPostContent(
     }
     const btn = post.cta?.[Number(part)];
     return btn ? (
-      <CtaLink key={`cta-${idx}`} btn={btn} buttonName={`${post.slug}-cta${part}`} />
+      <CtaLink
+        key={`cta-${idx}`}
+        btn={btn}
+        buttonName={`${post.slug}-cta${part}`}
+        forceShow={forceShowCta}
+      />
     ) : null;
   });
 }
@@ -263,11 +294,13 @@ function LocalPostView({ post }: { post: LocalPost }) {
   });
   const postUrl = `${siteConfig.site_domain}/posts/${post.slug}`;
   const adSlotArticle = process.env.NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE;
-  // 네광용 디스플레이 광고 슬롯 — 2번째, 4번째 문단 뒤에 각각 삽입
+  // 네광용 디스플레이 광고 슬롯 — 글 길이에 비례한 위치들에 삽입(computeMidArticleAdPositions)
   const adSlotMidArticle =
     process.env.NEXT_PUBLIC_ADSENSE_SLOT_MIDARTICLE || "8085639039";
   // 이 글은 게이팅을 해제해 모든 유입(다이렉트 포함)에 AdSense 광고를 바로 노출
   const forceShowAds = post.ungateAds === true;
+  // 이 글은 CTA 버튼(본문·스티키)도 게이팅을 해제해 모든 유입에 노출
+  const forceShowCta = post.ungateCta === true;
   // 본문에 <!--CTA:n--> 마커가 있으면 해당 위치에 n번째 CTA를 인라인으로 렌더(상단 블록 대신)
   const hasInlineCta = !!(
     post.cta &&
@@ -276,7 +309,11 @@ function LocalPostView({ post }: { post: LocalPost }) {
     /<!--CTA:\d+-->/.test(post.contentHtml)
   );
   const contentWithAdMarker = post.contentHtml
-    ? insertAfterParagraphs(post.contentHtml, MIDARTICLE_AD_MARKER, [2, 4])
+    ? insertAfterParagraphs(
+        post.contentHtml,
+        MIDARTICLE_AD_MARKER,
+        computeMidArticleAdPositions(countParagraphs(post.contentHtml))
+      )
     : post.contentHtml;
 
   const articleJsonLd = {
@@ -355,6 +392,7 @@ function LocalPostView({ post }: { post: LocalPost }) {
                 key={`${i}-${btn.href}`}
                 btn={btn}
                 buttonName={`${post.slug}-cta${i}`}
+                forceShow={forceShowCta}
               />
             ))}
           </>
@@ -372,14 +410,27 @@ function LocalPostView({ post }: { post: LocalPost }) {
             id={`local-post-body-${post.slug}`}
             className={cn(post.contentHtml && "editorial")}
           >
-            {renderPostContent(contentWithAdMarker ?? "", post, adSlotMidArticle, forceShowAds)}
+            {renderPostContent(
+              contentWithAdMarker ?? "",
+              post,
+              adSlotMidArticle,
+              forceShowAds,
+              forceShowCta
+            )}
           </PreserveLinkParams>
         )}
         {adSlotArticle && <AdSenseUnit slot={adSlotArticle} forceShow={forceShowAds} />}
+        {post.related && post.related.length > 0 && (
+          <RelatedCards slugs={post.related} />
+        )}
         <TaboolaPlacements />
       </Container>
       {post.cta && post.cta[0] && !post.actionGuide && (
-        <StickyCta btn={post.cta[0]} buttonName={`${post.slug}-sticky-cta`} />
+        <StickyCta
+          btn={post.cta[0]}
+          buttonName={`${post.slug}-sticky-cta`}
+          forceShow={forceShowCta}
+        />
       )}
     </Section>
   );

@@ -14,9 +14,12 @@ import { buildOutboundHref } from "@/lib/utm";
 export function StickyCta({
   btn,
   buttonName,
+  forceShow = false,
 }: {
   btn: { label: string; href: string };
   buttonName: string;
+  /** true면 게이팅(PaidOnly)을 우회해 다이렉트 접속에도 노출한다(post.ungateCta). */
+  forceShow?: boolean;
 }) {
   const { naverAdParams } = useTrafficGate();
   const pathname = usePathname();
@@ -44,12 +47,11 @@ export function StickyCta({
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  return (
-    <PaidOnly>
-      <div
-        className="editorial-sticky-cta md:hidden"
-        data-show={show ? "true" : "false"}
-      >
+  const bar = (
+    <div
+      className="editorial-sticky-cta md:hidden"
+      data-show={show ? "true" : "false"}
+    >
         <a
           href={outboundHref}
           rel="noopener noreferrer sponsored"
@@ -79,6 +81,8 @@ export function StickyCta({
           {btn.label}
         </a>
       </div>
-    </PaidOnly>
   );
+
+  // ungateCta 글은 게이팅 없이 항상 노출, 그 외에는 유료 유입에만 노출.
+  return forceShow ? bar : <PaidOnly>{bar}</PaidOnly>;
 }

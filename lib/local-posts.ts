@@ -56,6 +56,10 @@ export type LocalPost = {
   contentHtml?: string;
   /** true면 트래픽 게이팅을 무시하고 모든 유입에 AdSense 광고를 노출한다. */
   ungateAds?: boolean;
+  /** true면 CTA 버튼(본문 인라인·하단 스티키)도 게이팅을 무시하고 모든 유입에 노출한다. */
+  ungateCta?: boolean;
+  /** 하단 "함께 보면 좋은 글" 관련 카드로 링크할 같은 클러스터 글 slug들(내부 순환). */
+  related?: string[];
 };
 
 // 최신순 정렬된 불변 배열
