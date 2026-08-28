@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useTrafficGate } from "@/components/traffic/traffic-gate";
+import { useAdGate } from "@/components/ads/ad-gate";
 
 interface TaboolaUnitProps {
   /** 페이지 내 유일해야 하는 위젯 컨테이너 id */
@@ -28,10 +29,12 @@ export function TaboolaUnit({
   className,
 }: TaboolaUnitProps) {
   const { isPaid } = useTrafficGate();
+  const { forceAds } = useAdGate();
+  const show = isPaid || forceAds;
   const pushed = useRef(false);
 
   useEffect(() => {
-    if (pushed.current || !isPaid) return;
+    if (pushed.current || !show) return;
     // @ts-expect-error - _taboola는 TaboolaLoader가 주입하는 전역
     window._taboola = window._taboola || [];
     // @ts-expect-error - _taboola는 TaboolaLoader가 주입하는 전역
@@ -42,9 +45,9 @@ export function TaboolaUnit({
       target_type: targetType,
     });
     pushed.current = true;
-  }, [isPaid, containerId, mode, placement, targetType]);
+  }, [show, containerId, mode, placement, targetType]);
 
-  if (!isPaid) return null;
+  if (!show) return null;
 
   return <div id={containerId} className={cn("not-prose", className)} />;
 }

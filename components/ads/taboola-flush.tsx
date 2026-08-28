@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useTrafficGate } from "@/components/traffic/traffic-gate";
+import { useAdGate } from "@/components/ads/ad-gate";
 
 /**
  * Taboola flush 신호. </body> 끝에 해당하는 위치(app/layout.tsx의 Footer 뒤)에 1회만
@@ -11,16 +12,18 @@ import { useTrafficGate } from "@/components/traffic/traffic-gate";
  */
 export function TaboolaFlush() {
   const { isPaid } = useTrafficGate();
+  const { forceAds } = useAdGate();
+  const show = isPaid || forceAds;
   const flushed = useRef(false);
 
   useEffect(() => {
-    if (flushed.current || !isPaid) return;
+    if (flushed.current || !show) return;
     // @ts-expect-error - _taboola는 TaboolaLoader가 주입하는 전역
     window._taboola = window._taboola || [];
     // @ts-expect-error - _taboola는 TaboolaLoader가 주입하는 전역
     window._taboola.push({ flush: true });
     flushed.current = true;
-  }, [isPaid]);
+  }, [show]);
 
   return null;
 }
