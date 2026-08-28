@@ -260,6 +260,7 @@
   },
   {
     "slug": "gapyung-cheongrium-reservation-guide",
+    "ungateAds": true,
     "title": "가평청리움 예약 방법 총정리 — 가격·예약사이트·취소·확인까지",
     "excerpt": "가평청리움 예약 방법, 가격(무료개방), 예약 취소·확인 방법을 한 번에 정리했습니다.",
     "date": "2026-07-23T09:03:00",
@@ -976,6 +977,7 @@
   },
   {
     "slug": "accountinfo-dormant-account-guide",
+    "ungateAds": true,
     "title": "어카운트인포 계좌통합조회·휴면계좌 조회 방법 총정리",
     "excerpt": "은행·저축은행·증권사에 흩어진 내 계좌를 한 번에 조회하고, 우리은행·하나은행·우체국 등 휴면계좌 잔액을 확인해 이체하는 방법을 정리했습니다.",
     "date": "2026-07-27T10:10:00",

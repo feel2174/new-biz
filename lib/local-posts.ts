@@ -54,6 +54,8 @@ export type LocalPost = {
   cta?: LocalCta[];
   actionGuide?: ActionGuide;
   contentHtml?: string;
+  /** true면 트래픽 게이팅을 무시하고 모든 유입에 AdSense 광고를 노출한다. */
+  ungateAds?: boolean;
 };
 
 // 최신순 정렬된 불변 배열

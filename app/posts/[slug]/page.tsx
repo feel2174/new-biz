@@ -48,7 +48,8 @@ const CONTENT_MARKER_RE = /<!--(?:CTA:(\d+)|MIDARTICLE_AD)-->/;
 function renderPostContent(
   html: string,
   post: LocalPost,
-  adSlotMidArticle?: string
+  adSlotMidArticle?: string,
+  forceShowAds = false
 ) {
   return html.split(CONTENT_MARKER_RE).map((part, idx) => {
     // split(캡처그룹): 짝수 idx=HTML 조각, 홀수 idx=CTA 인덱스 문자열 또는 광고 마커(undefined)
@@ -59,7 +60,7 @@ function renderPostContent(
     }
     if (part === undefined) {
       return adSlotMidArticle ? (
-        <AdSenseUnit key={`midad-${idx}`} slot={adSlotMidArticle} />
+        <AdSenseUnit key={`midad-${idx}`} slot={adSlotMidArticle} forceShow={forceShowAds} />
       ) : null;
     }
     const btn = post.cta?.[Number(part)];
@@ -243,6 +244,8 @@ function LocalPostView({ post }: { post: LocalPost }) {
   // 네광용 디스플레이 광고 슬롯 — 2번째, 4번째 문단 뒤에 각각 삽입
   const adSlotMidArticle =
     process.env.NEXT_PUBLIC_ADSENSE_SLOT_MIDARTICLE || "8085639039";
+  // 이 글은 게이팅을 해제해 모든 유입(다이렉트 포함)에 AdSense 광고를 바로 노출
+  const forceShowAds = post.ungateAds === true;
   // 본문에 <!--CTA:n--> 마커가 있으면 해당 위치에 n번째 CTA를 인라인으로 렌더(상단 블록 대신)
   const hasInlineCta = !!(
     post.cta &&
@@ -324,7 +327,7 @@ function LocalPostView({ post }: { post: LocalPost }) {
           </>
         )}
 
-        {adSlotArticle && <AdSenseUnit slot={adSlotArticle} />}
+        {adSlotArticle && <AdSenseUnit slot={adSlotArticle} forceShow={forceShowAds} />}
         {post.actionGuide ? (
           <ActionGuideLanding
             guide={post.actionGuide}
@@ -333,10 +336,10 @@ function LocalPostView({ post }: { post: LocalPost }) {
           />
         ) : (
           <PreserveLinkParams>
-            {renderPostContent(contentWithAdMarker ?? "", post, adSlotMidArticle)}
+            {renderPostContent(contentWithAdMarker ?? "", post, adSlotMidArticle, forceShowAds)}
           </PreserveLinkParams>
         )}
-        {adSlotArticle && <AdSenseUnit slot={adSlotArticle} />}
+        {adSlotArticle && <AdSenseUnit slot={adSlotArticle} forceShow={forceShowAds} />}
         <TaboolaPlacements />
       </Container>
     </Section>

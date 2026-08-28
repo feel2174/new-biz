@@ -14,6 +14,8 @@ interface AdSenseUnitProps {
   format?: string;
   /** 광고 영역을 컨테이너 너비에 맞춤 */
   responsive?: boolean;
+  /** 트래픽 게이팅을 무시하고 모든 유입(다이렉트 포함)에 광고를 노출 */
+  forceShow?: boolean;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -27,14 +29,17 @@ export function AdSenseUnit({
   slot,
   format = "auto",
   responsive = true,
+  forceShow = false,
   className,
   style,
 }: AdSenseUnitProps) {
   const { isPaid } = useTrafficGate();
   const pushed = useRef(false);
+  // forceShow=true인 페이지는 게이팅을 건너뛰고 모든 유입에 광고를 노출한다.
+  const show = isPaid || forceShow;
 
   useEffect(() => {
-    if (pushed.current || !slot || !isPaid) return;
+    if (pushed.current || !slot || !show) return;
     try {
       // @ts-expect-error - adsbygoogle는 외부 스크립트가 주입하는 전역
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -42,10 +47,10 @@ export function AdSenseUnit({
     } catch {
       // 광고 차단기 등으로 실패해도 무시
     }
-  }, [slot, isPaid]);
+  }, [slot, show]);
 
-  // 슬롯 미설정 또는 비(非)유료 유입(다이렉트·크롤러)에는 광고 미노출
-  if (!slot || !isPaid) return null;
+  // 슬롯 미설정 또는 (게이팅 활성 페이지에서) 비(非)유료 유입에는 광고 미노출
+  if (!slot || !show) return null;
 
   return (
     <div className={cn("my-6 flex w-full justify-center overflow-hidden", className)}>
