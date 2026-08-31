@@ -231,7 +231,7 @@
   },
   {
     "slug": "hamyang-daebongsan-monorail-guide",
-    "ungateAds": true,
+    "ungateAds": false,
     "ungateCta": true,
     "related": ["daebongsan-monorail-restaurant-guide", "daebongsan-monorail-pet-guide", "haerang-train-guide", "gapyung-cheongrium-reservation-guide"],
     "title": "함양 대봉산 모노레일 정보 총정리 — 예약·요금·시간표·주차·반려동반·맛집",
@@ -263,7 +263,7 @@
   },
   {
     "slug": "gapyung-cheongrium-reservation-guide",
-    "ungateAds": true,
+    "ungateAds": false,
     "ungateCta": true,
     "related": ["gapyung-cheongrium-day-course-guide", "gapyung-cheongrium-nearby-cafe-guide", "hamyang-daebongsan-monorail-guide", "haerang-train-guide"],
     "title": "가평청리움 예약 방법 총정리 — 가격·예약사이트·취소·확인까지",
@@ -288,7 +288,7 @@
       { "label": "위택스에서 자동차세 납부하기", "href": "https://zucca100.com/car-tax/" },
       { "label": "숨어있는 자동차세 환급금 확인하기", "href": "https://zucca100.com/car-tax-return/" }
     ],
-    "ungateAds": true,
+    "ungateAds": false,
     "ungateCta": true,
     "related": [ "car-tax-annual", "telecom-bill-refund-check-guide", "k-pass-refund-guide", "hidden-insurance-money-guide" ],
     "contentHtml": "<h2>자동차세납부·자동차세환급·자동차세납부조회, 무엇이 다른가요?</h2><p>자동차세는 매년 정해진 시기에 내야 하는 지방세지만, 실제로 검색해 보면 <strong>자동차세납부</strong>, <strong>자동차세환급</strong>, <strong>자동차세납부조회</strong>가 서로 다른 상황을 가리키는 경우가 많습니다. 자동차세납부는 아직 내지 않은 세금을 내는 것, 자동차세납부조회는 내가 내야 할 금액이나 이미 낸 내역을 확인하는 것, 자동차세환급은 이미 낸 세금 중 돌려받을 수 있는 돈이 있는지 확인하고 청구하는 것을 뜻합니다.</p><p>세 가지 모두 <strong>위택스(WeTax)</strong> 한 곳에서 처리할 수 있어서, 순서대로 확인하면 헷갈릴 필요가 없습니다. 아래 표로 먼저 핵심만 훑어보세요.</p><!--CTA:0--><h2>한눈 요약</h2><table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td>처리 사이트</td><td>위택스(WeTax) · 서울 차량은 이택스(ETAX)</td></tr><tr><td>납부 시기</td><td>정기분 연 2회(6월·12월), 연납은 연초 신청</td></tr><tr><td>납부조회 경로</td><td>위택스 로그인 → 납부 → 납부대상 확인</td></tr><tr><td>환급 사유</td><td>과오납·중복납부, 매도·폐차·수출, 경정·정정</td></tr><tr><td>환급 신청</td><td>위택스 환급 메뉴에서 직접 신청(자동입금 아님)</td></tr><tr><td>환급 소멸시효</td><td>통상 5년(지나면 청구 권리 소멸)</td></tr></tbody></table><p>환급·조회가 처음이라면 <a href=\"/posts/car-tax-annual\">자동차세 연납 신청·할인율 총정리 →</a>와 <a href=\"/posts/telecom-bill-refund-check-guide\">통신비 환급금 조회 방법 →</a>도 함께 확인해보세요.</p><h2>자동차세납부조회 방법 (위택스·이택스)</h2><p>자동차세납부조회는 위택스 홈페이지 또는 앱에서 간편인증이나 공동·금융인증서로 로그인한 뒤, 상단 메뉴의 <strong>'납부' → '납부대상 확인'</strong>에서 확인할 수 있습니다. 서울에 차량을 등록한 경우에는 서울시 이택스(ETAX)에서도 동일하게 조회할 수 있습니다.</p><p>조회 화면에서는 이번에 내야 할 세액, 납부 기한, 이미 납부한 내역까지 함께 확인할 수 있어 자동차세납부 여부를 헷갈릴 일이 없습니다.</p><h2>자동차세납부, 언제 얼마나 내나요?</h2><p>자동차세납부는 원칙적으로 1년에 두 번, 6월과 12월에 나눠서 이뤄집니다. 각 시기의 세액과 정확한 마감일은 차량 배기량·연식에 따라 달라지므로, 연납 할인이나 상세 일정이 궁금하다면 위택스에서 내 차량 기준으로 직접 조회하는 것이 가장 정확합니다.</p><h2>자동차세 연납 — 미리 내면 할인받을 수 있어요</h2><p>자동차세연납은 1년치 자동차세를 연초(보통 1월)에 미리 한 번에 내면 남은 기간분에 대해 일정 비율을 깎아주는 제도입니다. 6월·12월에 나눠 내는 정기분과 달리, 신청한 사람만 할인을 받을 수 있어 모르고 지나치면 손해를 볼 수 있습니다.</p><p>연납 할인율은 신청 시기(1월·3월·6월·9월)가 늦어질수록 줄어들고, 해마다 제도가 조정되기도 합니다. 그래서 정확한 할인율과 신청 마감일은 위택스에서 내 차량 기준으로 확인하는 것이 가장 안전합니다. 자세한 연납 신청 절차와 최신 할인율은 <a href=\"/posts/car-tax-annual\">자동차세 연납 신청 방법·할인율 총정리 →</a>에서 따로 정리했습니다.</p><p><strong>지금 위택스에서 내 자동차세 납부대상과 기한을 확인해 보세요.</strong></p><!--CTA:1--><h2>자동차세환급, 어떤 경우에 받을 수 있나요?</h2><p>자동차세환급은 아래와 같은 상황에서 발생합니다.</p><ul><li>세금을 <strong>중복으로 납부</strong>했거나 실제보다 많이 낸 경우(과오납)</li><li>차량을 <strong>매도·폐차·수출</strong>했는데 이미 남은 기간분까지 세금을 낸 경우</li><li>지방자치단체의 <strong>경정·정정 결정</strong>으로 세액이 줄어든 경우</li></ul><p>이런 자동차세환급금은 자동으로 입금되지 않고, 본인이 직접 위택스에서 조회하고 신청해야 하는 경우가 대부분입니다.</p><h2>자동차세환급 신청, 이렇게 하면 됩니다</h2><ol><li>위택스 홈페이지 또는 앱에 간편인증·공동인증서로 로그인합니다.</li><li>환급(지방세 환급금) 메뉴에서 환급 대상 여부와 환급액을 조회합니다.</li><li>돌려받을 본인 명의 계좌번호를 입력하고 신청을 완료합니다.</li><li>신청 후에는 보통 영업일 기준 1주일 안에 입금됩니다.</li></ol><p>온라인 신청이 어렵다면 관할 구청·시청 세무과를 직접 방문하거나 전화로도 자동차세환급을 신청할 수 있습니다. 방문 시에는 신분증과 본인 명의 통장(사본)을 챙기는 것이 좋습니다.</p><p><strong>혹시 나도 모르게 남아있는 자동차세환급금이 있는지 지금 확인해보세요.</strong></p><!--CTA:2--><h2>자주 묻는 질문</h2><p><strong>Q. 자동차세납부조회는 본인 명의 차량만 가능한가요?</strong> 위택스 로그인은 본인 인증 기반이라, 원칙적으로는 본인 명의로 등록된 차량 내역만 조회됩니다. 가족 명의 차량은 위임 절차 없이는 조회가 제한될 수 있습니다.</p><p><strong>Q. 자동차세환급금을 안 찾아가면 어떻게 되나요?</strong> 지방세 환급금은 소멸시효(통상 5년)가 있어, 그 기간이 지나면 청구 권리가 사라질 수 있습니다. 오래 미뤄두지 말고 미리 조회해 두는 것이 안전합니다.</p><p><strong>Q. 간편결제(카카오페이·네이버페이)로 자동차세납부가 안 될 때는?</strong> 차량 소유자 명의와 간편인증 명의가 다르면 조회·납부가 막히는 경우가 많습니다. 이때는 위택스 공식 홈페이지에 직접 접속해 본인 명의로 다시 인증하면 대부분 해결됩니다.</p><p><strong>지금 바로 자동차세납부·자동차세환급 내역을 한 번에 확인해 보세요.</strong></p><!--CTA:2-->"
@@ -425,7 +425,7 @@
   },
   {
     "slug": "haerang-train-guide",
-    "ungateAds": true,
+    "ungateAds": false,
     "ungateCta": true,
     "related": ["haerang-train-jeonguk-course-guide", "haerang-train-regional-course-guide", "hamyang-daebongsan-monorail-guide", "gapyung-cheongrium-reservation-guide"],
     "title": "해랑열차 예약 방법·코스·가격·취소규정 총정리",
@@ -988,7 +988,7 @@
   },
   {
     "slug": "accountinfo-dormant-account-guide",
-    "ungateAds": true,
+    "ungateAds": false,
     "title": "어카운트인포 계좌통합조회·휴면계좌 조회 방법 총정리",
     "excerpt": "은행·저축은행·증권사에 흩어진 내 계좌를 한 번에 조회하고, 우리은행·하나은행·우체국 등 휴면계좌 잔액을 확인해 이체하는 방법을 정리했습니다.",
     "date": "2026-07-27T10:10:00",
@@ -1080,7 +1080,7 @@
   },
   {
     "slug": "haerang-train-jeonguk-course-guide",
-    "ungateAds": true,
+    "ungateAds": false,
     "ungateCta": true,
     "related": [
       "haerang-train-guide",
@@ -1109,7 +1109,7 @@
   },
   {
     "slug": "haerang-train-regional-course-guide",
-    "ungateAds": true,
+    "ungateAds": false,
     "ungateCta": true,
     "related": [
       "haerang-train-guide",
@@ -1138,7 +1138,7 @@
   },
   {
     "slug": "gapyung-cheongrium-day-course-guide",
-    "ungateAds": true,
+    "ungateAds": false,
     "ungateCta": true,
     "related": [
       "gapyung-cheongrium-reservation-guide",
@@ -1167,7 +1167,7 @@
   },
   {
     "slug": "gapyung-cheongrium-nearby-cafe-guide",
-    "ungateAds": true,
+    "ungateAds": false,
     "ungateCta": true,
     "related": [
       "gapyung-cheongrium-reservation-guide",
