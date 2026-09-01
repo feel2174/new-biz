@@ -27,6 +27,16 @@ import {
 const STORAGE_KEY = "tg_paid";
 const NAVER_AD_STORAGE_KEY = "tg_naver_ad";
 
+// 광고 게이팅 전면 해제 스위치.
+// true면 트래픽 소스와 무관하게(다이렉트·크롤러 포함) 모든 유입에 수익화 UI
+// (CTA·하단 메뉴·AdSense·Taboola)를 노출한다. isPaid를 항상 true로 만들어
+// PaidOnly / AdSenseUnit / AdSenseScript / TaboolaUnit·Loader·Flush 등
+// isPaid에 의존하는 모든 게이팅을 한 번에 연다. 검수용 클린 페이지로 되돌리려면
+// 이 값을 false로 바꾸면 된다(원래 유료 유입 전용 게이팅으로 복귀).
+// 네이버 광고 파라미터 감지(naverAdParams: UTM 전달·GA4 이벤트용)는 이 스위치와
+// 무관하게 실제 유료 파라미터가 있을 때만 그대로 동작한다.
+const UNGATE_ALL = true;
+
 // 네이버 광고 유입 시 부착되는 파라미터
 // NaPm: 네이버 통합 광고 추적 파라미터(파워링크/검색광고). n_*: 구형 파워링크 파라미터.
 const NAVER_PAID_KEYS = [
@@ -137,34 +147,33 @@ export function TrafficGateProvider({ children }: { children: ReactNode }) {
       const search = new URLSearchParams(window.location.search);
       const currentIsPaid = detectPaidTraffic(search, document.referrer);
 
-      if (!currentIsPaid) {
+      if (currentIsPaid) {
+        // 네이버 광고 상세 파라미터: 세션 내 이미 저장돼 있으면 그대로 복원,
+        // 없고 이번 랜딩 URL에 있으면 최초 1회 저장 + GA4 랜딩 이벤트 전송
+        const storedNaverAd = sessionStorage.getItem(NAVER_AD_STORAGE_KEY);
+        if (storedNaverAd) {
+          setNaverAdParams(JSON.parse(storedNaverAd));
+        } else {
+          const naverAd = extractNaverAdParams(search);
+          if (naverAd) {
+            sessionStorage.setItem(NAVER_AD_STORAGE_KEY, JSON.stringify(naverAd));
+            setNaverAdParams(naverAd);
+            // @ts-expect-error - gtag는 app/layout.tsx head 스크립트가 주입하는 전역
+            window.gtag?.("event", "naver_ad_landing", naverAd);
+          }
+        }
+        sessionStorage.setItem(STORAGE_KEY, "1");
+      } else {
         sessionStorage.removeItem(STORAGE_KEY);
         sessionStorage.removeItem(NAVER_AD_STORAGE_KEY);
-        setIsPaid(false);
         setNaverAdParams(null);
-        return;
       }
 
-      // 네이버 광고 상세 파라미터: 세션 내 이미 저장돼 있으면 그대로 복원,
-      // 없고 이번 랜딩 URL에 있으면 최초 1회 저장 + GA4 랜딩 이벤트 전송
-      const storedNaverAd = sessionStorage.getItem(NAVER_AD_STORAGE_KEY);
-      if (storedNaverAd) {
-        setNaverAdParams(JSON.parse(storedNaverAd));
-      } else {
-        const naverAd = extractNaverAdParams(search);
-        if (naverAd) {
-          sessionStorage.setItem(NAVER_AD_STORAGE_KEY, JSON.stringify(naverAd));
-          setNaverAdParams(naverAd);
-          // @ts-expect-error - gtag는 app/layout.tsx head 스크립트가 주입하는 전역
-          window.gtag?.("event", "naver_ad_landing", naverAd);
-        }
-      }
-
-      sessionStorage.setItem(STORAGE_KEY, "1");
-      setIsPaid(true);
+      // UNGATE_ALL이면 유입 종류와 무관하게 수익화 UI를 노출한다.
+      setIsPaid(UNGATE_ALL || currentIsPaid);
     } catch {
       const search = new URLSearchParams(window.location.search);
-      setIsPaid(detectPaidTraffic(search, document.referrer));
+      setIsPaid(UNGATE_ALL || detectPaidTraffic(search, document.referrer));
     }
   }, []);
 
