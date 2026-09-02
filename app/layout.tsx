@@ -70,6 +70,19 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        {/* Google tag (gtag.js) — Google Ads AW-18398101283 */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18398101283"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18398101283');`,
+          }}
+        />
         {/* Pretendard Variable — 한글 본문 가독성용. dynamic-subset로 필요한 글리프만 로드.
             Noto Sans KR는 --font-sans 체인 뒤쪽 폴백으로 남는다. */}
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="" />
