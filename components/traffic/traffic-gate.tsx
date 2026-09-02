@@ -35,7 +35,7 @@ const NAVER_AD_STORAGE_KEY = "tg_naver_ad";
 // 이 값을 false로 바꾸면 된다(원래 유료 유입 전용 게이팅으로 복귀).
 // 네이버 광고 파라미터 감지(naverAdParams: UTM 전달·GA4 이벤트용)는 이 스위치와
 // 무관하게 실제 유료 파라미터가 있을 때만 그대로 동작한다.
-const UNGATE_ALL = true;
+const UNGATE_ALL = false;
 
 // 네이버 광고 유입 시 부착되는 파라미터
 // NaPm: 네이버 통합 광고 추적 파라미터(파워링크/검색광고). n_*: 구형 파워링크 파라미터.
