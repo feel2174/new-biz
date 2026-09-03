@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-label="고속도로 통행료 미납 조회 및 납부 총정리">
+  <defs>
+    <linearGradient id="roadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#091e3a"/>
+      <stop offset="50%" stop-color="#103663"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="laneGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="800" height="360" fill="url(#roadGrad)"/>
+
+  <!-- 고속도로 톨게이트 및 하이패스 레인 원근감 효과 -->
+  <path d="M 0 360 L 320 220 L 480 220 L 800 360 Z" fill="#07182c" opacity="0.6"/>
+  <line x1="400" y1="220" x2="400" y2="360" stroke="#38bdf8" stroke-width="4" stroke-dasharray="14 14" opacity="0.7"/>
+  <line x1="360" y1="220" x2="200" y2="360" stroke="#38bdf8" stroke-width="2" opacity="0.4"/>
+  <line x1="440" y1="220" x2="600" y2="360" stroke="#38bdf8" stroke-width="2" opacity="0.4"/>
+
+  <!-- 푸른색 광채 효과 -->
+  <circle cx="400" cy="220" r="90" fill="#38bdf8" fill-opacity="0.15"/>
+  <circle cx="700" cy="80" r="130" fill="#0284c7" fill-opacity="0.08"/>
+
+  <!-- 상단 태그 뱃지 -->
+  <rect x="48" y="42" width="310" height="32" rx="16" fill="#091e3a" fill-opacity="0.75" stroke="#38bdf8" stroke-width="1.2"/>
+  <circle cx="64" cy="58" r="5" fill="#38bdf8"/>
+  <text x="78" y="64" fill="#bae6fd" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">한국도로공사 · 고속도로 통행료 &amp; 하이패스 가이드</text>
+
+  <!-- 메인 타이틀 -->
+  <text x="48" y="130" fill="#ffffff" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="40" font-weight="800" letter-spacing="-0.03em">고속도로 통행료 미납 조회·납부</text>
+  <text x="48" y="176" fill="#fde047" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="24" font-weight="700" letter-spacing="-0.02em">차량번호 간편조회 · 편의점 즉시납부 · 10배 가산금</text>
+
+  <!-- 설명 서브 텍스트 -->
+  <text x="48" y="222" fill="#e2e8f0" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="16" font-weight="400">비회원 실시간 확인 · 가상계좌 입금 · 렌트카/쏘카 처리 · 콜센터 1588-2504</text>
+
+  <!-- 하단 주요 포인트 알약 뱃지 4개 -->
+  <g transform="translate(48, 260)">
+    <!-- 뱃지 1: 차량번호 간편조회 -->
+    <rect x="0" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="65" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">차량번호 간편조회</text>
+
+    <!-- 뱃지 2: 편의점 즉시납부 -->
+    <rect x="142" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="207" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">편의점 즉시납부</text>
+
+    <!-- 뱃지 3: 10배 가산금 예방 -->
+    <rect x="284" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="349" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">10배 가산금 예방</text>
+
+    <!-- 뱃지 4: 렌터카 미납 정산 -->
+    <rect x="426" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="491" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">렌터카 미납 정산</text>
+  </g>
+</svg>

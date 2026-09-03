@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" role="img" aria-label="고속도로 통행료 미납 조회 및 납부 4단계 로드맵">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- 전체 배경 카드 -->
+  <rect width="760" height="380" rx="16" fill="url(#cardBg)" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- 헤더 영역 -->
+  <g transform="translate(36, 32)">
+    <rect x="0" y="0" width="125" height="26" rx="13" fill="#0284c7" fill-opacity="0.12"/>
+    <text x="62.5" y="17" fill="#0284c7" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="12" font-weight="700">미납 해결 가이드</text>
+    <text x="0" y="52" fill="#0f172a" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="20" font-weight="800" letter-spacing="-0.02em">고속도로 통행료 미납 조회 &amp; 간편 납부 4단계</text>
+    <text x="490" y="52" fill="#64748b" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="13" font-weight="500">한국도로공사 1588-2504</text>
+  </g>
+
+  <!-- 단계별 4개 블록 -->
+  <!-- 단계 1: 차량번호 조회 -->
+  <g transform="translate(36, 110)" filter="url(#shadow)">
+    <rect width="152" height="175" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="14" y="14" width="28" height="28" rx="6" fill="#e0f2fe"/>
+    <text x="28" y="33" fill="#0284c7" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="14" font-weight="800">1</text>
+    <text x="14" y="68" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="15" font-weight="700">차량번호 조회</text>
+    <text x="14" y="88" fill="#0284c7" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">도로공사 홈페이지/앱</text>
+    <path d="M 14 100 L 138 100" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="14" y="122" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">차량번호 입력</text>
+    <text x="14" y="142" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">비회원 간편확인</text>
+    <text x="14" y="162" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="11">공동인증서/간편인증</text>
+  </g>
+
+  <!-- 연결 화살표 1 -->
+  <path d="M 194 195 L 210 195" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="214,195 208,191 208,199" fill="#94a3b8"/>
+
+  <!-- 단계 2: 상세 내역 확인 -->
+  <g transform="translate(218, 110)" filter="url(#shadow)">
+    <rect width="152" height="175" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="14" y="14" width="28" height="28" rx="6" fill="#e0f2fe"/>
+    <text x="28" y="33" fill="#0284c7" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="14" font-weight="800">2</text>
+    <text x="14" y="68" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="15" font-weight="700">미납내역 확인</text>
+    <text x="14" y="88" fill="#0284c7" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">구간 및 금액 체크</text>
+    <path d="M 14 100 L 138 100" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="14" y="122" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">미납 일시·영업소</text>
+    <text x="14" y="142" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">원금 및 납부기한</text>
+    <text x="14" y="162" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="11">민자고속도로 확인</text>
+  </g>
+
+  <!-- 연결 화살표 2 -->
+  <path d="M 376 195 L 392 195" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="396,195 390,191 390,199" fill="#94a3b8"/>
+
+  <!-- 단계 3: 납부 수단 선택 -->
+  <g transform="translate(400, 110)" filter="url(#shadow)">
+    <rect width="152" height="175" rx="12" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+    <rect x="14" y="14" width="28" height="28" rx="6" fill="#0284c7"/>
+    <text x="28" y="33" fill="#ffffff" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="14" font-weight="800">3</text>
+    <text x="14" y="68" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="15" font-weight="700">납부 수단 선택</text>
+    <text x="14" y="88" fill="#d97706" font-family="'Pretendard',sans-serif" font-size="12" font-weight="700">원클릭 간편납부</text>
+    <path d="M 14 100 L 138 100" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="14" y="122" fill="#475569" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">편의점 바코드/QR</text>
+    <text x="14" y="142" fill="#475569" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">가상계좌 입금</text>
+    <text x="14" y="162" fill="#0284c7" font-family="'Pretendard',sans-serif" font-size="11" font-weight="600">신용카드/티머니</text>
+  </g>
+
+  <!-- 연결 화살표 3 -->
+  <path d="M 558 195 L 574 195" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="578,195 572,191 572,199" fill="#94a3b8"/>
+
+  <!-- 단계 4: 즉시 정산 완료 -->
+  <g transform="translate(582, 110)" filter="url(#shadow)">
+    <rect width="142" height="175" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="14" y="14" width="28" height="28" rx="6" fill="#ecfdf5"/>
+    <text x="28" y="33" fill="#059669" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="14" font-weight="800">4</text>
+    <text x="14" y="68" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="15" font-weight="700">미납 해소 완료</text>
+    <text x="14" y="88" fill="#059669" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">가산금 10배 예방</text>
+    <path d="M 14 100 L 128 100" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="14" y="122" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">전산 즉시 반영</text>
+    <text x="14" y="142" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">영수증 보관</text>
+    <text x="14" y="162" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="11">압류·강제징수 차단</text>
+  </g>
+
+  <!-- 하단 안내 배너 -->
+  <g transform="translate(36, 308)">
+    <rect width="688" height="46" rx="8" fill="#0284c7" fill-opacity="0.08" stroke="#0284c7" stroke-opacity="0.2"/>
+    <circle cx="24" cy="23" r="10" fill="#0284c7"/>
+    <text x="24" y="27" fill="#ffffff" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="12" font-weight="800">!</text>
+    <text x="44" y="28" fill="#0369a1" font-family="'Pretendard',sans-serif" font-size="13" font-weight="600">
+      주의: 독촉장 기한 경과 시 통행료의 10배에 달하는 부가통행료가 추가 청구되므로 고지서 수령 즉시 납부하세요!
+    </text>
+  </g>
+</svg>
