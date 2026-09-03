@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-label="실업급여 신청방법 총정리">
+  <defs>
+    <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="800" height="360" fill="url(#navyGrad)"/>
+
+  <!-- 장식 곡선 및 은은한 광채 -->
+  <path d="M -50 200 Q 200 80 480 220 T 850 160 L 850 360 L -50 360 Z" fill="url(#glowGrad)"/>
+  <circle cx="720" cy="70" r="140" fill="#38bdf8" fill-opacity="0.06"/>
+  <circle cx="60" cy="300" r="90" fill="#60a5fa" fill-opacity="0.05"/>
+
+  <!-- 상단 태그 뱃지 -->
+  <rect x="48" y="42" width="295" height="32" rx="16" fill="#0f172a" fill-opacity="0.7" stroke="#38bdf8" stroke-width="1.2"/>
+  <circle cx="64" cy="58" r="5" fill="#38bdf8"/>
+  <text x="78" y="64" fill="#bae6fd" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">고용노동부 고용24 · 실업급여(구직급여) 가이드</text>
+
+  <!-- 메인 타이틀 -->
+  <text x="48" y="130" fill="#ffffff" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="40" font-weight="800" letter-spacing="-0.03em">실업급여 신청방법 총정리</text>
+  <text x="48" y="176" fill="#fde047" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="24" font-weight="700" letter-spacing="-0.02em">고용24 온라인신청 · 워크넷 구직등록 · 조건 180일</text>
+
+  <!-- 설명 서브 텍스트 -->
+  <text x="48" y="222" fill="#e2e8f0" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="16" font-weight="400">수급자격 온라인 교육 · 실업인정 차수별 가이드 · 예상 수급액 모의계산</text>
+
+  <!-- 하단 주요 포인트 알약 뱃지 4개 -->
+  <g transform="translate(48, 260)">
+    <!-- 뱃지 1: 고용24 온라인 -->
+    <rect x="0" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="65" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">고용24 간편신청</text>
+
+    <!-- 뱃지 2: 워크넷 구직등록 -->
+    <rect x="142" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="207" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">워크넷 구직신청</text>
+
+    <!-- 뱃지 3: 수급조건 180일 -->
+    <rect x="284" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="349" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">수급조건 180일</text>
+
+    <!-- 뱃지 4: 1~8차 실업인정 -->
+    <rect x="426" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="491" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">1~8차 실업인정</text>
+  </g>
+</svg>

@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" role="img" aria-label="실업급여(구직급여) 신청 5단계 핵심 로드맵">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- 전체 배경 카드 -->
+  <rect width="760" height="390" rx="16" fill="url(#cardBg)" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- 헤더 영역 -->
+  <g transform="translate(36, 30)">
+    <rect x="0" y="0" width="125" height="26" rx="13" fill="#0284c7" fill-opacity="0.12"/>
+    <text x="62.5" y="17" fill="#0284c7" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="12" font-weight="700">신청 로드맵 한눈에 보기</text>
+    <text x="0" y="52" fill="#0f172a" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="20" font-weight="800" letter-spacing="-0.02em">실업급여(구직급여) 고용24 신청 5단계 절차</text>
+    <text x="500" y="52" fill="#64748b" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="13" font-weight="500">퇴사 후 12개월 내 완료 필수</text>
+  </g>
+
+  <!-- 5단계 카드 블록 -->
+  <!-- 1단계: 이직확인서 -->
+  <g transform="translate(36, 105)" filter="url(#shadow)">
+    <rect width="124" height="180" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="12" y="12" width="26" height="26" rx="6" fill="#e0f2fe"/>
+    <text x="25" y="30" fill="#0284c7" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="13" font-weight="800">1</text>
+    <text x="12" y="62" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="14" font-weight="700">이직확인서</text>
+    <text x="12" y="80" fill="#0284c7" font-family="'Pretendard',sans-serif" font-size="11" font-weight="600">처리 여부 확인</text>
+    <path d="M 12 92 L 112 92" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="12" y="112" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="11" font-weight="500">사업주 요청</text>
+    <text x="12" y="130" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="11" font-weight="500">고용보험 피보험</text>
+    <text x="12" y="148" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="11" font-weight="500">자격상실신고</text>
+    <text x="12" y="168" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="10">고용24 조회</text>
+  </g>
+
+  <!-- 화살표 1 -->
+  <path d="M 164 195 L 176 195" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- 2단계: 워크넷 구직신청 -->
+  <g transform="translate(180, 105)" filter="url(#shadow)">
+    <rect width="124" height="180" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="12" y="12" width="26" height="26" rx="6" fill="#e0f2fe"/>
+    <text x="25" y="30" fill="#0284c7" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="13" font-weight="800">2</text>
+    <text x="12" y="62" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="14" font-weight="700">워크넷 구직</text>
+    <text x="12" y="80" fill="#0284c7" font-family="'Pretendard',sans-serif" font-size="11" font-weight="600">구직신청 등록</text>
+    <path d="M 12 92 L 112 92" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="12" y="112" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="11" font-weight="500">이력서 작성</text>
+    <text x="12" y="130" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="11" font-weight="500">희망 직종 등록</text>
+    <text x="12" y="148" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="11" font-weight="500">구직신청 완료</text>
+    <text x="12" y="168" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="10">구직번호 발급</text>
+  </g>
+
+  <!-- 화살표 2 -->
+  <path d="M 308 195 L 320 195" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- 3단계: 온라인 교육 -->
+  <g transform="translate(324, 105)" filter="url(#shadow)">
+    <rect width="124" height="180" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="12" y="12" width="26" height="26" rx="6" fill="#e0f2fe"/>
+    <text x="25" y="30" fill="#0284c7" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="13" font-weight="800">3</text>
+    <text x="12" y="62" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="14" font-weight="700">온라인 교육</text>
+    <text x="12" y="80" fill="#0284c7" font-family="'Pretendard',sans-serif" font-size="11" font-weight="600">수급자격 교육</text>
+    <path d="M 12 92 L 112 92" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="12" y="112" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="11" font-weight="500">고용24 동영상</text>
+    <text x="12" y="130" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="11" font-weight="500">약 1시간 시청</text>
+    <text x="12" y="148" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="11" font-weight="500">퀴즈 풀고 이수</text>
+    <text x="12" y="168" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="10">14일 내 신청필수</text>
+  </g>
+
+  <!-- 화살표 3 -->
+  <path d="M 452 195 L 464 195" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- 4단계: 신청서 제출 -->
+  <g transform="translate(468, 105)" filter="url(#shadow)">
+    <rect width="124" height="180" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="12" y="12" width="26" height="26" rx="6" fill="#e0f2fe"/>
+    <text x="25" y="30" fill="#0284c7" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="13" font-weight="800">4</text>
+    <text x="12" y="62" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="14" font-weight="700">신청서 제출</text>
+    <text x="12" y="80" fill="#0284c7" font-family="'Pretendard',sans-serif" font-size="11" font-weight="600">온라인/방문</text>
+    <path d="M 12 92 L 112 92" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="12" y="112" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="11" font-weight="500">고용24 신청서</text>
+    <text x="12" y="130" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="11" font-weight="500">또는 고용센터</text>
+    <text x="12" y="148" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="11" font-weight="500">신분증 지참</text>
+    <text x="12" y="168" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="10">자격 심사 진행</text>
+  </g>
+
+  <!-- 화살표 4 -->
+  <path d="M 596 195 L 608 195" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- 5단계: 1차 실업인정 & 입금 -->
+  <g transform="translate(612, 105)" filter="url(#shadow)">
+    <rect width="112" height="180" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+    <rect x="10" y="12" width="26" height="26" rx="6" fill="#0284c7"/>
+    <text x="23" y="30" fill="#ffffff" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="13" font-weight="800">5</text>
+    <text x="10" y="62" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="14" font-weight="700">1차 실업인정</text>
+    <text x="10" y="80" fill="#d97706" font-family="'Pretendard',sans-serif" font-size="11" font-weight="700">첫 급여 입금</text>
+    <path d="M 10 92 L 102 92" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="10" y="112" fill="#475569" font-family="'Pretendard',sans-serif" font-size="11" font-weight="600">접수 후 14일</text>
+    <text x="10" y="130" fill="#475569" font-family="'Pretendard',sans-serif" font-size="11" font-weight="600">지정일 출석</text>
+    <text x="10" y="148" fill="#0284c7" font-family="'Pretendard',sans-serif" font-size="11" font-weight="700">8일분 입금</text>
+    <text x="10" y="168" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="10">2차~8차 진행</text>
+  </g>
+
+  <!-- 하단 안내 배너 -->
+  <g transform="translate(36, 312)">
+    <rect width="688" height="48" rx="8" fill="#0284c7" fill-opacity="0.08" stroke="#0284c7" stroke-opacity="0.2"/>
+    <circle cx="24" cy="24" r="10" fill="#0284c7"/>
+    <text x="24" y="28" fill="#ffffff" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="12" font-weight="800">!</text>
+    <text x="44" y="29" fill="#0369a1" font-family="'Pretendard',sans-serif" font-size="13" font-weight="600">
+      필수 주의: 실업급여는 퇴사 후 12개월(수급기간) 내에 소정급여일수를 모두 소진해야 하므로, 퇴사 직후 바로 신청하세요!
+    </text>
+  </g>
+</svg>
