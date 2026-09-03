@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" role="img" aria-label="함양 대봉산 모노레일 운행 코스 및 소요시간 인포그래픽">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- 전체 배경 카드 -->
+  <rect width="760" height="380" rx="16" fill="url(#cardBg)" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- 헤더 영역 -->
+  <g transform="translate(36, 32)">
+    <rect x="0" y="0" width="105" height="26" rx="13" fill="#047857" fill-opacity="0.12"/>
+    <text x="52.5" y="17" fill="#047857" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="12" font-weight="700">운행 코스 한눈에 보기</text>
+    <text x="0" y="52" fill="#0f172a" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="20" font-weight="800" letter-spacing="-0.02em">대봉산 모노레일 추천 탑승 동선 &amp; 소요시간</text>
+    <text x="490" y="52" fill="#64748b" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="13" font-weight="500">총 연장 3.93km · 왕복 약 65분</text>
+  </g>
+
+  <!-- 단계별 4개 블록 -->
+  <!-- 단계 1: 무료 주차 & 셔틀버스 -->
+  <g transform="translate(36, 110)" filter="url(#shadow)">
+    <rect width="152" height="175" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="14" y="14" width="28" height="28" rx="6" fill="#ecfdf5"/>
+    <text x="28" y="33" fill="#059669" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="14" font-weight="800">1</text>
+    <text x="14" y="68" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="15" font-weight="700">하부 주차장</text>
+    <text x="14" y="88" fill="#047857" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">무료 주차장 완비</text>
+    <path d="M 14 100 L 138 100" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="14" y="122" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">무료 셔틀버스 탑승</text>
+    <text x="14" y="142" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">15~20분 간격 배차</text>
+    <text x="14" y="162" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="11">승강장까지 약 5분</text>
+  </g>
+
+  <!-- 연결 화살표 1 -->
+  <path d="M 194 195 L 210 195" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="214,195 208,191 208,199" fill="#94a3b8"/>
+
+  <!-- 단계 2: 하부승강장 (모노레일 상행) -->
+  <g transform="translate(218, 110)" filter="url(#shadow)">
+    <rect width="152" height="175" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="14" y="14" width="28" height="28" rx="6" fill="#ecfdf5"/>
+    <text x="28" y="33" fill="#059669" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="14" font-weight="800">2</text>
+    <text x="14" y="68" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="15" font-weight="700">하부 승강장</text>
+    <text x="14" y="88" fill="#0284c7" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">상행 편도 약 30분</text>
+    <path d="M 14 100 L 138 100" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="14" y="122" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">8인승 에어컨 캐빈</text>
+    <text x="14" y="142" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">예매 모바일티켓 확인</text>
+    <text x="14" y="162" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="11">당일 현장발권 가능</text>
+  </g>
+
+  <!-- 연결 화살표 2 -->
+  <path d="M 376 195 L 392 195" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="396,195 390,191 390,199" fill="#94a3b8"/>
+
+  <!-- 단계 3: 상부승강장 (해발 1,228m 정상부) -->
+  <g transform="translate(400, 110)" filter="url(#shadow)">
+    <rect width="152" height="175" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+    <rect x="14" y="14" width="28" height="28" rx="6" fill="#059669"/>
+    <text x="28" y="33" fill="#ffffff" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="14" font-weight="800">3</text>
+    <text x="14" y="68" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="15" font-weight="700">상부 승강장</text>
+    <text x="14" y="88" fill="#d97706" font-family="'Pretendard',sans-serif" font-size="12" font-weight="700">해발 1,228m 정상</text>
+    <path d="M 14 100 L 138 100" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="14" y="122" fill="#475569" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">천왕봉·불로장생전망대</text>
+    <text x="14" y="142" fill="#475569" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">지리산 능선·소원바위</text>
+    <text x="14" y="162" fill="#059669" font-family="'Pretendard',sans-serif" font-size="11" font-weight="600">추천 체류: 30~50분</text>
+  </g>
+
+  <!-- 연결 화살표 3 -->
+  <path d="M 558 195 L 574 195" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="578,195 572,191 572,199" fill="#94a3b8"/>
+
+  <!-- 단계 4: 하행 모노레일 / 짚라인 -->
+  <g transform="translate(582, 110)" filter="url(#shadow)">
+    <rect width="142" height="175" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="14" y="14" width="28" height="28" rx="6" fill="#ecfdf5"/>
+    <text x="28" y="33" fill="#059669" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="14" font-weight="800">4</text>
+    <text x="14" y="68" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="15" font-weight="700">하행 복귀</text>
+    <text x="14" y="88" fill="#0284c7" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">하행 편도 약 35분</text>
+    <path d="M 14 100 L 128 100" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="14" y="122" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">다른 풍경 코스 조망</text>
+    <text x="14" y="142" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">짚라인(별도) 연계 가능</text>
+    <text x="14" y="162" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="11">식당·카페 이용 연계</text>
+  </g>
+
+  <!-- 하단 안내 배너 -->
+  <g transform="translate(36, 308)">
+    <rect width="688" height="46" rx="8" fill="#047857" fill-opacity="0.08" stroke="#047857" stroke-opacity="0.2"/>
+    <circle cx="24" cy="23" r="10" fill="#047857"/>
+    <text x="24" y="27" fill="#ffffff" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="12" font-weight="800">!</text>
+    <text x="44" y="28" fill="#065f46" font-family="'Pretendard',sans-serif" font-size="13" font-weight="600">
+      팁: 주말·단풍철 성수기는 조기 매진되므로 사전 온라인 예매를 권장하며, 당일 취소분 현장발권은 오전 일찍 방문하는 것이 유리합니다.
+    </text>
+  </g>
+</svg>

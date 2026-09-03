@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-label="함양 대봉산 모노레일 가이드">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="60%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="mountGrad1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#022c22" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#065f46" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="mountGrad2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#011b15" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="800" height="360" fill="url(#bgGrad)"/>
+
+  <!-- 산 실루엣 (원경) -->
+  <path d="M 0 250 Q 180 140 380 230 T 700 160 Q 750 180 800 210 L 800 360 L 0 360 Z" fill="url(#mountGrad1)"/>
+
+  <!-- 산 실루엣 (근경) -->
+  <path d="M 0 280 Q 220 180 440 290 T 800 240 L 800 360 L 0 360 Z" fill="url(#mountGrad2)"/>
+
+  <!-- 모노레일 트랙 라인 (가상 궤도) -->
+  <path d="M 120 340 Q 350 250 520 200 T 760 110" fill="none" stroke="#34d399" stroke-width="4" stroke-dasharray="8 6" opacity="0.45"/>
+
+  <!-- 상단 태그 뱃지 -->
+  <rect x="48" y="42" width="280" height="32" rx="16" fill="#022c22" fill-opacity="0.65" stroke="#34d399" stroke-width="1.2"/>
+  <circle cx="64" cy="58" r="5" fill="#34d399"/>
+  <text x="78" y="64" fill="#a7f3d0" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">국내 최장 3.93km · 해발 1,228m 절경</text>
+
+  <!-- 메인 타이틀 -->
+  <text x="48" y="130" fill="#ffffff" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="40" font-weight="800" letter-spacing="-0.03em">함양 대봉산 모노레일</text>
+  <text x="48" y="176" fill="#fcd34d" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="24" font-weight="700" letter-spacing="-0.02em">완벽 가이드 — 예약·요금·시간표·명소</text>
+
+  <!-- 설명 서브 텍스트 -->
+  <text x="48" y="222" fill="#e2e8f0" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="16" font-weight="400">왕복 65분 코스 · 에어컨 캐빈 · 잔여 좌석 확인 및 당일 현장구매 꿀팁</text>
+
+  <!-- 하단 주요 포인트 알약 뱃지 4개 -->
+  <g transform="translate(48, 260)">
+    <!-- 뱃지 1: 실시간 예매 -->
+    <rect x="0" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="65" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">실시간 온라인예매</text>
+
+    <!-- 뱃지 2: 요금 및 할인 -->
+    <rect x="142" y="0" width="125" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="204" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">요금·대상별 할인</text>
+
+    <!-- 뱃지 3: 무료 주차&셔틀 -->
+    <rect x="279" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="344" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">무료 주차 &amp; 셔틀</text>
+
+    <!-- 뱃지 4: 가을 단풍 명소 -->
+    <rect x="421" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="486" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">가을 단풍 &amp; 절경</text>
+  </g>
+</svg>
