@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-label="가평청리움 완벽 가이드">
+  <defs>
+    <linearGradient id="forestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="50%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="hillGrad1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#022c22" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#065f46" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="hillGrad2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#011b15" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="800" height="360" fill="url(#forestGrad)"/>
+
+  <!-- 보리산 능선 실루엣 (원경) -->
+  <path d="M 0 240 Q 200 130 420 220 T 800 170 L 800 360 L 0 360 Z" fill="url(#hillGrad1)"/>
+
+  <!-- 잔디마당·숲 실루엣 (근경) -->
+  <path d="M 0 270 Q 240 170 480 270 T 800 230 L 800 360 L 0 360 Z" fill="url(#hillGrad2)"/>
+
+  <!-- 부드러운 산책로 곡선 -->
+  <path d="M 80 360 Q 260 270 420 300 T 740 240" fill="none" stroke="#6ee7b7" stroke-width="3" stroke-dasharray="6 6" opacity="0.4"/>
+
+  <!-- 상단 태그 뱃지 -->
+  <rect x="48" y="42" width="295" height="32" rx="16" fill="#022c22" fill-opacity="0.65" stroke="#34d399" stroke-width="1.2"/>
+  <circle cx="64" cy="58" r="5" fill="#34d399"/>
+  <text x="78" y="64" fill="#a7f3d0" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">경기도 가평 힐링 명소 · 보리산 복합 문화 공간</text>
+
+  <!-- 메인 타이틀 -->
+  <text x="48" y="130" fill="#ffffff" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="40" font-weight="800" letter-spacing="-0.03em">가평청리움 완벽 가이드</text>
+  <text x="48" y="176" fill="#fcd34d" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="24" font-weight="700" letter-spacing="-0.02em">예약방법·가격(무료개방)·취소확인·위치</text>
+
+  <!-- 설명 서브 텍스트 -->
+  <text x="48" y="222" fill="#e2e8f0" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="16" font-weight="400">100% 사전 예약제 · 잔디마당 카페 · 당일 나들이 코스 및 방문 꿀팁</text>
+
+  <!-- 하단 주요 포인트 알약 뱃지 4개 -->
+  <g transform="translate(48, 260)">
+    <!-- 뱃지 1: 네이버 예약 -->
+    <rect x="0" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="65" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">네이버 간편예약</text>
+
+    <!-- 뱃지 2: 가격 및 무료개방 -->
+    <rect x="142" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="207" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">가격·무료개방 안내</text>
+
+    <!-- 뱃지 3: 예약 취소·확인 -->
+    <rect x="284" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="349" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">예약취소·확인법</text>
+
+    <!-- 뱃지 4: 당일 나들이 코스 -->
+    <rect x="426" y="0" width="130" height="42" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="491" y="26" fill="#ffffff" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="14" font-weight="600">당일 나들이 코스</text>
+  </g>
+</svg>

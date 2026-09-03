@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" role="img" aria-label="가평청리움 네이버 예약 절차 및 공간 안내 인포그래픽">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- 전체 배경 카드 -->
+  <rect width="760" height="380" rx="16" fill="url(#cardBg)" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- 헤더 영역 -->
+  <g transform="translate(36, 32)">
+    <rect x="0" y="0" width="105" height="26" rx="13" fill="#047857" fill-opacity="0.12"/>
+    <text x="52.5" y="17" fill="#047857" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="12" font-weight="700">예약 &amp; 이용 가이드</text>
+    <text x="0" y="52" fill="#0f172a" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="20" font-weight="800" letter-spacing="-0.02em">가평청리움 네이버 예약 절차 및 이용 동선</text>
+    <text x="490" y="52" fill="#64748b" font-family="'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="13" font-weight="500">개인방문 100% 사전 예약제</text>
+  </g>
+
+  <!-- 단계별 4개 블록 -->
+  <!-- 단계 1: 네이버 예약 접속 -->
+  <g transform="translate(36, 110)" filter="url(#shadow)">
+    <rect width="152" height="175" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="14" y="14" width="28" height="28" rx="6" fill="#ecfdf5"/>
+    <text x="28" y="33" fill="#059669" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="14" font-weight="800">1</text>
+    <text x="14" y="68" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="15" font-weight="700">네이버 예약</text>
+    <text x="14" y="88" fill="#047857" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">청리움 예약페이지</text>
+    <path d="M 14 100 L 138 100" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="14" y="122" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">네이버플레이스 검색</text>
+    <text x="14" y="142" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">개인방문예약 선택</text>
+    <text x="14" y="162" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="11">현장 예매 불가(사전제)</text>
+  </g>
+
+  <!-- 연결 화살표 1 -->
+  <path d="M 194 195 L 210 195" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="214,195 208,191 208,199" fill="#94a3b8"/>
+
+  <!-- 단계 2: 날짜·시간 선택 -->
+  <g transform="translate(218, 110)" filter="url(#shadow)">
+    <rect width="152" height="175" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="14" y="14" width="28" height="28" rx="6" fill="#ecfdf5"/>
+    <text x="28" y="33" fill="#059669" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="14" font-weight="800">2</text>
+    <text x="14" y="68" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="15" font-weight="700">일정·인원 선택</text>
+    <text x="14" y="88" fill="#0284c7" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">잔여 자리 실시간 확인</text>
+    <path d="M 14 100 L 138 100" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="14" y="122" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">방문 날짜 및 회차</text>
+    <text x="14" y="142" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">동반 인원 등록</text>
+    <text x="14" y="162" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="11">무료개방 시 0원 결제</text>
+  </g>
+
+  <!-- 연결 화살표 2 -->
+  <path d="M 376 195 L 392 195" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="396,195 390,191 390,199" fill="#94a3b8"/>
+
+  <!-- 단계 3: 예약 확정 & 확인 -->
+  <g transform="translate(400, 110)" filter="url(#shadow)">
+    <rect width="152" height="175" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+    <rect x="14" y="14" width="28" height="28" rx="6" fill="#059669"/>
+    <text x="28" y="33" fill="#ffffff" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="14" font-weight="800">3</text>
+    <text x="14" y="68" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="15" font-weight="700">예약확인·취소</text>
+    <text x="14" y="88" fill="#d97706" font-family="'Pretendard',sans-serif" font-size="12" font-weight="700">네이버 '내 예약'</text>
+    <path d="M 14 100 L 138 100" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="14" y="122" fill="#475569" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">모바일 예약증 확인</text>
+    <text x="14" y="142" fill="#475569" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">간편 취소 수수료 0원</text>
+    <text x="14" y="162" fill="#059669" font-family="'Pretendard',sans-serif" font-size="11" font-weight="600">단체는 대관규정 적용</text>
+  </g>
+
+  <!-- 연결 화살표 3 -->
+  <path d="M 558 195 L 574 195" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="578,195 572,191 572,199" fill="#94a3b8"/>
+
+  <!-- 단계 4: 방문 & 나들이 -->
+  <g transform="translate(582, 110)" filter="url(#shadow)">
+    <rect width="142" height="175" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+    <rect x="14" y="14" width="28" height="28" rx="6" fill="#ecfdf5"/>
+    <text x="28" y="33" fill="#059669" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="14" font-weight="800">4</text>
+    <text x="14" y="68" fill="#0f172a" font-family="'Pretendard',sans-serif" font-size="15" font-weight="700">청리움 나들이</text>
+    <text x="14" y="88" fill="#0284c7" font-family="'Pretendard',sans-serif" font-size="12" font-weight="600">보리산 힐링 공간</text>
+    <path d="M 14 100 L 128 100" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="14" y="122" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">넓은 잔디마당 산책</text>
+    <text x="14" y="142" fill="#64748b" font-family="'Pretendard',sans-serif" font-size="12" font-weight="500">카페테리아 이용</text>
+    <text x="14" y="162" fill="#94a3b8" font-family="'Pretendard',sans-serif" font-size="11">무료 주차장 완비</text>
+  </g>
+
+  <!-- 하단 안내 배너 -->
+  <g transform="translate(36, 308)">
+    <rect width="688" height="46" rx="8" fill="#047857" fill-opacity="0.08" stroke="#047857" stroke-opacity="0.2"/>
+    <circle cx="24" cy="23" r="10" fill="#047857"/>
+    <text x="24" y="27" fill="#ffffff" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="12" font-weight="800">!</text>
+    <text x="44" y="28" fill="#065f46" font-family="'Pretendard',sans-serif" font-size="13" font-weight="600">
+      방문 꿀팁: 개인 방문은 100% 사전 예약제이므로 반드시 사전 예약 후 방문하세요. 주말 일정은 마감이 빠릅니다.
+    </text>
+  </g>
+</svg>
