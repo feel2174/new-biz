@@ -96,11 +96,24 @@ export function Footer() {
             </div>
           </PaidOnly>
         </Container>
-        <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
-          <p className="text-muted-foreground text-sm">
-            &copy; {new Date().getFullYear()} {siteConfig.site_name}. All rights
-            reserved.
-          </p>
+        <Container className="border-t not-prose pt-6 space-y-4">
+          <div className="text-xs text-muted-foreground/80 leading-relaxed bg-muted/40 p-4 rounded-lg border border-border/50">
+            <p className="font-semibold text-foreground/80 mb-1">
+              [면책 공고 및 비즈니스 관계 안내]
+            </p>
+            <p>
+              본 웹사이트(생활정보 나침반)는 한국도로공사, 고용노동부, 근로복지공단 등 정부·공공기관 및 특정 공식 브랜드와 법적·재정적 제휴 관계가 없는 독립된 민간 생활·행정 정보 안내 블로그입니다.
+              제공되는 모든 콘텐츠는 대중의 편의를 돕기 위한 공공 정보 요약 및 단순 안내 목적으로 작성되었으며, 공식적인 행정 처리나 민원 신청은 각 기관의 공식 웹사이트를 이용해 주시기 바랍니다.
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row md:gap-2 gap-4 justify-between md:items-center text-muted-foreground text-xs">
+            <p>
+              &copy; {new Date().getFullYear()} {siteConfig.site_name}. All rights reserved.
+            </p>
+            <p>
+              독립 정보 서비스 · 공공기관 및 브랜드 사칭 금지 준수
+            </p>
+          </div>
         </Container>
       </Section>
     </footer>

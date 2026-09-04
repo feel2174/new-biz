@@ -419,6 +419,16 @@ function LocalPostView({ post }: { post: LocalPost }) {
             )}
           </PreserveLinkParams>
         )}
+        <div className="my-8 rounded-lg border border-neutral-200 bg-neutral-50/80 p-4 text-xs leading-relaxed text-neutral-600">
+          <p className="font-semibold text-neutral-800 mb-1 flex items-center gap-1.5">
+            <span>ℹ️</span> 안내 및 면책 공지
+          </p>
+          <p>
+            본 콘텐츠는 이용자의 편의를 돕기 위해 공공 정보를 바탕으로 작성된 민간 독립 정보 안내 글입니다.
+            한국도로공사, 고용노동부 등 정부·공공기관 및 특정 공식 브랜드와 직접적인 제휴·후원 관계가 없으며,
+            정식 행정 신청 및 업무 처리는 각 기관의 공식 누리집을 이용해 주시기 바랍니다.
+          </p>
+        </div>
         {adSlotArticle && <AdSenseUnit slot={adSlotArticle} forceShow={forceShowAds} />}
         {post.related && post.related.length > 0 && (
           <RelatedCards slugs={post.related} />
