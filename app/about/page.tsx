@@ -59,7 +59,7 @@ export default function AboutPage() {
             개인정보 보호책임자: 김영주
             <br />
             문의 이메일:{" "}
-            <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a>
+            <a href="mailto:feel2174@gmail.com">feel2174@gmail.com</a>
           </p>
           <p className="text-sm text-muted-foreground">
             본 사이트는 정보 제공을 목적으로 하며, 각 제도·서비스의 공식 운영

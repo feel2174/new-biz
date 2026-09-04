@@ -32,9 +32,9 @@ export function Footer() {
                 이메일:{" "}
                 <a
                   className="hover:underline underline-offset-4"
-                  href="mailto:devzucca@gmail.com"
+                  href="mailto:feel2174@gmail.com"
                 >
-                  devzucca@gmail.com
+                  feel2174@gmail.com
                 </a>
               </p>
             </div>

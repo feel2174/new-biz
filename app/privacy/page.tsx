@@ -78,7 +78,7 @@ export default function PrivacyPage() {
             개인정보 보호책임자: 김영주
             <br />
             이메일:{" "}
-            <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a>
+            <a href="mailto:feel2174@gmail.com">feel2174@gmail.com</a>
           </p>
 
           <h2>7. 방침의 변경</h2>

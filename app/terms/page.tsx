@@ -62,7 +62,7 @@ export default function TermsPage() {
           <h2>제7조 (문의)</h2>
           <p>
             약관 관련 문의:{" "}
-            <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a>
+            <a href="mailto:feel2174@gmail.com">feel2174@gmail.com</a>
           </p>
         </Prose>
       </Container>

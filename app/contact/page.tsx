@@ -20,7 +20,7 @@ export default function ContactPage() {
           </p>
           <h2>이메일 문의</h2>
           <p>
-            <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a>
+            <a href="mailto:feel2174@gmail.com">feel2174@gmail.com</a>
           </p>
           <h2>정정 요청 안내</h2>
           <p>
