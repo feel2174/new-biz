@@ -6,6 +6,10 @@
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
   "minify": true,
+  "routes": [
+    { "pattern": "new-biz.zucca100.com", "custom_domain": true, "zone_id": "e846eeaced4f50a40b9d9014466129a8" },
+    { "pattern": "www.new-biz.zucca100.com", "custom_domain": true, "zone_id": "e846eeaced4f50a40b9d9014466129a8" }
+  ],
   "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
   "services": [
     { "binding": "WORKER_SELF_REFERENCE", "service": "new-biz-zucca100" }
