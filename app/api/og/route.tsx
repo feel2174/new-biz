@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { NextRequest } from "next/server";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 /**
  * Google Fonts에서 주어진 텍스트에 필요한 글리프만 포함한 폰트(ttf)를 로드한다.
